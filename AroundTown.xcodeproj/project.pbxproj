@@ -56,15 +56,31 @@
 		278F5758295A9199003A5666 /* AroundTown */ = {
 			isa = PBXGroup;
 			children = (
+				278F576E295A921E003A5666 /* Models */,
+				278F576D295A9211003A5666 /* ViewControllers */,
 				278F5759295A9199003A5666 /* AppDelegate.swift */,
 				278F575B295A9199003A5666 /* SceneDelegate.swift */,
-				278F575D295A9199003A5666 /* ViewController.swift */,
 				278F575F295A9199003A5666 /* Main.storyboard */,
 				278F5762295A919B003A5666 /* Assets.xcassets */,
 				278F5764295A919B003A5666 /* LaunchScreen.storyboard */,
 				278F5767295A919B003A5666 /* Info.plist */,
 			);
 			path = AroundTown;
+			sourceTree = "<group>";
+		};
+		278F576D295A9211003A5666 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				278F575D295A9199003A5666 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		278F576E295A921E003A5666 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
