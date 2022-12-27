@@ -15,6 +15,9 @@
 		278F5766295A919B003A5666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 278F5764295A919B003A5666 /* LaunchScreen.storyboard */; };
 		278F5772295A9BE2003A5666 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F5771295A9BE2003A5666 /* LocationModel.swift */; };
 		278F5776295B7F55003A5666 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F5775295B7F55003A5666 /* Location.swift */; };
+		278F5778295B814F003A5666 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F5777295B814F003A5666 /* Venue.swift */; };
+		278F577A295B84DB003A5666 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F5779295B84DB003A5666 /* Photo.swift */; };
+		278F577C295B8618003A5666 /* VenueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F577B295B8618003A5666 /* VenueService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		278F5767295A919B003A5666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		278F5771295A9BE2003A5666 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		278F5775295B7F55003A5666 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		278F5777295B814F003A5666 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		278F5779295B84DB003A5666 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		278F577B295B8618003A5666 /* VenueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,9 @@
 			isa = PBXGroup;
 			children = (
 				278F5775295B7F55003A5666 /* Location.swift */,
+				278F5779295B84DB003A5666 /* Photo.swift */,
+				278F5777295B814F003A5666 /* Venue.swift */,
+				278F577B295B8618003A5666 /* VenueService.swift */,
 				278F576E295A921E003A5666 /* Models */,
 				278F576D295A9211003A5666 /* ViewControllers */,
 				278F5759295A9199003A5666 /* AppDelegate.swift */,
@@ -159,7 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278F577A295B84DB003A5666 /* Photo.swift in Sources */,
+				278F577C295B8618003A5666 /* VenueService.swift in Sources */,
 				278F5772295A9BE2003A5666 /* LocationModel.swift in Sources */,
+				278F5778295B814F003A5666 /* Venue.swift in Sources */,
 				278F575E295A9199003A5666 /* ViewController.swift in Sources */,
 				278F575A295A9199003A5666 /* AppDelegate.swift in Sources */,
 				278F5776295B7F55003A5666 /* Location.swift in Sources */,
