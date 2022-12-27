@@ -62,15 +62,15 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
                 return
             }
             
-            //Get the city and state names from the placemark
-            let city = placemark.locality ?? ""
-            let state = placemark.administrativeArea ?? ""
+            //Get the city and state names from the placemark, or set it back to default value
+            
+            let city = placemark.locality ?? "Oakland"
+            let state = placemark.administrativeArea ?? "CA"
             
             DispatchQueue.main.async {
                 
                 //Save the user location as a formatted string
                 self.userLocation = "\(city), \(state)"
-                print(self.userLocation)
                 
             }
             
