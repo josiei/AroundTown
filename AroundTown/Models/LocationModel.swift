@@ -12,7 +12,13 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
     
     
     private let locationManager = CLLocationManager()
-    var userLocation = "Oakland, CA" //Setting a default value
+    
+    //Set location to a default value
+    var userLocation = "Oakland, CA" { didSet {
+        
+        //Send a notification when the property changes
+        NotificationCenter.default.post(name: NSNotification.Name("LocationChanged"), object: self)
+    }}
     
     override init(){
         super.init()
