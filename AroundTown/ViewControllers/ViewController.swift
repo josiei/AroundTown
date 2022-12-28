@@ -35,7 +35,6 @@ extension ViewController: VenueModelProtocol {
     
     func venuesRetrieved(_ venues: [Venue]) {
         self.venues = venues
-        print("venues", self.venues)
         
     }
     

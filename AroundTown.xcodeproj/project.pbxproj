@@ -19,6 +19,7 @@
 		278F577A295B84DB003A5666 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F5779295B84DB003A5666 /* Photo.swift */; };
 		278F577C295B8618003A5666 /* VenueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F577B295B8618003A5666 /* VenueService.swift */; };
 		278F577E295B8A26003A5666 /* VenueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F577D295B8A26003A5666 /* VenueModel.swift */; };
+		27950097295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27950096295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		278F5779295B84DB003A5666 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		278F577B295B8618003A5666 /* VenueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueService.swift; sourceTree = "<group>"; };
 		278F577D295B8A26003A5666 /* VenueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueModel.swift; sourceTree = "<group>"; };
+		27950096295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SuisseIntlTrial-Bold.otf"; path = "../../../../SuisseIntlTrial-Bold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				278F5759295A9199003A5666 /* AppDelegate.swift */,
 				278F575B295A9199003A5666 /* SceneDelegate.swift */,
 				278F575F295A9199003A5666 /* Main.storyboard */,
+				27950095295BDF1D00F39A04 /* Fonts */,
 				278F5762295A919B003A5666 /* Assets.xcassets */,
 				278F5764295A919B003A5666 /* LaunchScreen.storyboard */,
 				278F5767295A919B003A5666 /* Info.plist */,
@@ -99,6 +102,14 @@
 				278F577D295B8A26003A5666 /* VenueModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		27950095295BDF1D00F39A04 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				27950096295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27950097295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf in Resources */,
 				278F5766295A919B003A5666 /* LaunchScreen.storyboard in Resources */,
 				278F5763295A919B003A5666 /* Assets.xcassets in Resources */,
 				278F5761295A9199003A5666 /* Main.storyboard in Resources */,

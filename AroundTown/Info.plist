@@ -64,5 +64,9 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Please allow location to find the hot spots near you.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SuisseIntlTrial-Bold.otf</string>
+	</array>
 </dict>
 </plist>
