@@ -8,7 +8,7 @@
 import Foundation
 
 struct Venue: Decodable {
-    var location: [Location]?
+    var location: Location?
     var name: String?
     var photos: [Photo]?
     var price: Int?

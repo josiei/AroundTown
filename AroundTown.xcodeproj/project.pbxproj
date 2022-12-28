@@ -18,6 +18,7 @@
 		278F5778295B814F003A5666 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F5777295B814F003A5666 /* Venue.swift */; };
 		278F577A295B84DB003A5666 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F5779295B84DB003A5666 /* Photo.swift */; };
 		278F577C295B8618003A5666 /* VenueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F577B295B8618003A5666 /* VenueService.swift */; };
+		278F577E295B8A26003A5666 /* VenueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F577D295B8A26003A5666 /* VenueModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		278F5777295B814F003A5666 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		278F5779295B84DB003A5666 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		278F577B295B8618003A5666 /* VenueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueService.swift; sourceTree = "<group>"; };
+		278F577D295B8A26003A5666 /* VenueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				278F5771295A9BE2003A5666 /* LocationModel.swift */,
+				278F577D295B8A26003A5666 /* VenueModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				278F577A295B84DB003A5666 /* Photo.swift in Sources */,
 				278F577C295B8618003A5666 /* VenueService.swift in Sources */,
 				278F5772295A9BE2003A5666 /* LocationModel.swift in Sources */,
+				278F577E295B8A26003A5666 /* VenueModel.swift in Sources */,
 				278F5778295B814F003A5666 /* Venue.swift in Sources */,
 				278F575E295A9199003A5666 /* ViewController.swift in Sources */,
 				278F575A295A9199003A5666 /* AppDelegate.swift in Sources */,
