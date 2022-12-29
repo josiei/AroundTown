@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     var venues = [Venue]()
     
     
-    @IBOutlet weak var locationLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,18 +25,18 @@ class ViewController: UIViewController {
         venueModel.getVenues()
         
         //Set the default text
-        locationLabel.text = locationModel.userLocation
+        //locationLabel.text = locationModel.userLocation
         
         //Subscribe VC to notification when LocationModel changes userLocation property
-        NotificationCenter.default.addObserver(self, selector: #selector(locationChanged(_:)), name: NSNotification.Name("LocationChanged"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(locationChanged(_:)), name: NSNotification.Name("LocationChanged"), object: nil)
 
         
     }
     
     //Change the locationLabel text when userLocation gets updated
-    @objc func locationChanged(_ notification: Notification){
-        locationLabel.text = locationModel.userLocation
-    }
+//    @objc func locationChanged(_ notification: Notification){
+//        locationLabel.text = locationModel.userLocation
+//    }
 
 
 }
