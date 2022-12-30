@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         //Set up layout
         setUpParentView()
         setUpHeader(view: containerView)
-        createBaseButton(view: containerView)
+        createBaseButton(view: containerView, imageName: "all-button")
         
         
         //Subscribe VC to notification when LocationModel changes userLocation property
@@ -91,36 +91,20 @@ class ViewController: UIViewController {
         
     }
     
-    func createBaseButton(view: UIView){
+    func createBaseButton(view: UIView, imageName: String){
         let button = UIButton(type: .system)
         
-        //Set button's title and color
-        button.frame = CGRect(x: 50, y: 50, width: 65, height: 65)
-        button.setTitle("Test", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        //Set button's frame size and position
+        button.frame = CGRect(x: 0, y: 0, width: 60, height: 90)
         
-        //Create a circular path for the outline of the button
-        let diameter = min(button.frame.width, button.frame.height)
-        let radius = diameter / 2.0
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: radius, y: radius), radius: radius - 5, startAngle: 0, endAngle: CGFloat.pi * 2.0, clockwise: true)
+        //Get image using imageName
+        let image = UIImage(named: imageName)
+        let imageHighlighted = UIImage(named: "\(imageName)-highlighted")
         
-        //Create shapeLayer and set properties
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = circlePath.cgPath
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = UIColor.black.cgColor
-        shapeLayer.lineWidth = 2.0
-        
-        //Create image object from shapeLayer
-        let imageSize = CGSize(width: diameter, height: diameter)
-        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0.0)
-        
-        //Can force unwrap as we just created context
-        shapeLayer.render(in: UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        //UIGraphicsEndImageContext()
-        
+        //Set images for buttons
         button.setBackgroundImage(image, for: .normal)
+        button.setBackgroundImage(imageHighlighted, for: .selected)
+        button.imageView?.contentMode = .scaleAspectFit
         
         view.addSubview(button)
     }
