@@ -29,8 +29,7 @@ class ViewController: UIViewController {
         //Set up layout
         setUpParentView()
         setUpHeader(view: containerView)
-        createBaseButton(view: containerView, imageName: "all-button")
-        
+        createCategoryRow(view: containerView)
         
         //Subscribe VC to notification when LocationModel changes userLocation property
         NotificationCenter.default.addObserver(self, selector: #selector(locationChanged(_:)), name: NSNotification.Name("LocationChanged"), object: nil)
@@ -91,7 +90,25 @@ class ViewController: UIViewController {
         
     }
     
-    func createBaseButton(view: UIView, imageName: String){
+    func createCategoryRow(view: UIStackView){
+        
+        let horizontalStack = UIStackView()
+        horizontalStack.axis = .horizontal
+        horizontalStack.spacing = 1
+        horizontalStack.distribution = .equalSpacing
+        
+        //Place buttons in a horizontal stack
+        createBaseButton(view: horizontalStack, imageName: "all-button")
+        createBaseButton(view: horizontalStack, imageName: "music-button")
+        createBaseButton(view: horizontalStack, imageName: "food-button")
+        createBaseButton(view: horizontalStack, imageName: "outdoor-button")
+        createBaseButton(view: horizontalStack, imageName: "bar-button")
+        
+        view.addArrangedSubview(horizontalStack)
+        
+    }
+    
+    func createBaseButton(view: UIStackView, imageName: String){
         let button = UIButton(type: .system)
         
         //Set button's frame size and position
@@ -106,7 +123,7 @@ class ViewController: UIViewController {
         button.setBackgroundImage(imageHighlighted, for: .selected)
         button.imageView?.contentMode = .scaleAspectFit
         
-        view.addSubview(button)
+        view.addArrangedSubview(button)
     }
 
     // TODO:
