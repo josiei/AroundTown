@@ -14,6 +14,10 @@ class ViewController: UIViewController {
     var venues = [Venue]()
     let containerView = UIStackView()
     let locationLabel = UILabel()
+    var suisseFont = UIFont(name: "SuisseIntlTrial-Bold", size: 25)
+    
+    //UIColor for #be9cf3
+    let accentColor = UIColor(red: 0.75, green: 0.61, blue: 0.95, alpha: 1.00)
     
     
     
@@ -78,7 +82,12 @@ class ViewController: UIViewController {
         //Set up Labels
         let findVenuesLabel = UILabel()
         findVenuesLabel.text = "Find Venues in"
+        findVenuesLabel.font = suisseFont
+        
         locationLabel.text = locationModel.userLocation
+        locationLabel.font = suisseFont
+        locationLabel.textColor = accentColor
+        
         
         //Add label to vertical stack
         verticalStack.addArrangedSubview(findVenuesLabel)
