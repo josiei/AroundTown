@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         //Set up layout
         setUpParentView()
         setUpHeader(view: containerView)
-        createCategoryRow(view: containerView)
+        setUpCategorySection(view: containerView)
         
         //Subscribe VC to notification when LocationModel changes userLocation property
         NotificationCenter.default.addObserver(self, selector: #selector(locationChanged(_:)), name: NSNotification.Name("LocationChanged"), object: nil)
@@ -114,6 +114,23 @@ class ViewController: UIViewController {
         createBaseButton(view: horizontalStack, imageName: "bar-button")
         
         view.addArrangedSubview(horizontalStack)
+        
+    }
+    
+    func setUpCategorySection(view: UIStackView){
+        let verticalStack = UIStackView()
+        verticalStack.axis = .vertical
+        verticalStack.spacing = 5
+        
+        let browseLabel = UILabel()
+        browseLabel.text = "Browse By Category"
+        browseLabel.font = suisseFont
+        
+        verticalStack.addArrangedSubview(browseLabel)
+        createCategoryRow(view: verticalStack)
+        
+        view.addArrangedSubview(verticalStack)
+        
         
     }
     
