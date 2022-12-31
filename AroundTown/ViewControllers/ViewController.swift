@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var venues = [Venue]()
     let containerView = UIStackView()
     let locationLabel = UILabel()
+    let venueTable = UITableView()
     var suisseFont = UIFont(name: "SuisseIntlTrial-Bold", size: 25)
     
     //UIColor for #be9cf3
@@ -32,8 +33,7 @@ class ViewController: UIViewController {
         
         //Set up layout
         setUpParentView()
-        setUpHeader(view: containerView)
-        setUpCategorySection(view: containerView)
+        setUpSubViewsProportionally(view: containerView)
         
         //Subscribe VC to notification when LocationModel changes userLocation property
         NotificationCenter.default.addObserver(self, selector: #selector(locationChanged(_:)), name: NSNotification.Name("LocationChanged"), object: nil)
@@ -73,11 +73,7 @@ class ViewController: UIViewController {
         //Create container
         let verticalStack = UIStackView()
         verticalStack.axis = .vertical
-        verticalStack.spacing = 3
-        
-        //Add padding
-        verticalStack.layoutMargins = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 0)
-        verticalStack.isLayoutMarginsRelativeArrangement = true
+        verticalStack.spacing = 5
         
         //Set up Labels
         let findVenuesLabel = UILabel()
@@ -120,7 +116,7 @@ class ViewController: UIViewController {
     func setUpCategorySection(view: UIStackView){
         let verticalStack = UIStackView()
         verticalStack.axis = .vertical
-        verticalStack.spacing = 5
+        verticalStack.spacing = 15
         
         let browseLabel = UILabel()
         browseLabel.text = "Browse By Category"
@@ -151,11 +147,43 @@ class ViewController: UIViewController {
         
         view.addArrangedSubview(button)
     }
+    
+    func setUpVenueSection(view: UIStackView){
+        let verticalStack = UIStackView()
+        verticalStack.axis = .vertical
+        verticalStack.spacing = 10
+        
+        let venueLabel = UILabel()
+        venueLabel.text = "Places For You"
+        venueLabel.font = suisseFont
+        
+        venueTable.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 2)
+        
+        verticalStack.addArrangedSubview(venueLabel)
+        verticalStack.addArrangedSubview(venueTable)
+        
+        view.addArrangedSubview(verticalStack)
+        
+    }
 
     // TODO:
-//    func setUpSubViewsProportionally() {
-//
-//    }
+    func setUpSubViewsProportionally(view: UIStackView) {
+        let verticalStack = UIStackView()
+        verticalStack.axis = .vertical
+        verticalStack.spacing = 20
+        
+        
+        setUpHeader(view: verticalStack)
+        setUpCategorySection(view: verticalStack)
+        setUpVenueSection(view: verticalStack)
+        
+        view.addArrangedSubview(verticalStack)
+        
+        //Add padding
+        verticalStack.layoutMargins = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        verticalStack.isLayoutMarginsRelativeArrangement = true
+
+    }
     
 
 
