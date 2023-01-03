@@ -68,7 +68,6 @@ class ViewController: UIViewController {
         containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         
         //Set Background Color
-        //containerView.backgroundColor = .white
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = background
         imageView.contentMode = .scaleAspectFill
@@ -104,7 +103,7 @@ class ViewController: UIViewController {
     }
     
     func createCategoryRow(view: UIStackView){
-        
+        //Create horizontal stack
         let horizontalStack = UIStackView()
         horizontalStack.axis = .horizontal
         horizontalStack.spacing = 1
@@ -122,10 +121,12 @@ class ViewController: UIViewController {
     }
     
     func setUpCategorySection(view: UIStackView){
+        //Create vertical stack
         let verticalStack = UIStackView()
         verticalStack.axis = .vertical
         verticalStack.spacing = 15
         
+        //Customize label
         let browseLabel = UILabel()
         browseLabel.text = "Browse By Category"
         browseLabel.font = suisseFont
@@ -157,14 +158,17 @@ class ViewController: UIViewController {
     }
     
     func setUpVenueSection(view: UIStackView){
+        //Create vertical stack
         let verticalStack = UIStackView()
         verticalStack.axis = .vertical
         verticalStack.spacing = 10
         
+        //Customize label
         let venueLabel = UILabel()
         venueLabel.text = "Places For You"
         venueLabel.font = suisseFont
         
+        //Set up Table View
         venueTable.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 2)
         venueTable.backgroundColor = .clear
         
@@ -175,13 +179,12 @@ class ViewController: UIViewController {
         
     }
 
-    // TODO:
     func setUpSubViewsProportionally(view: UIStackView) {
         let verticalStack = UIStackView()
         verticalStack.axis = .vertical
         verticalStack.spacing = 20
         
-        
+        //Add sections to stack
         setUpHeader(view: verticalStack)
         setUpCategorySection(view: verticalStack)
         setUpVenueSection(view: verticalStack)
