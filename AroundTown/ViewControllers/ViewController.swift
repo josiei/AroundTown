@@ -36,6 +36,9 @@ class ViewController: UIViewController {
         setUpParentView()
         setUpSubViewsProportionally(view: containerView)
         
+        //Assign VC as delegate and datasource for table view
+        venueTable.delegate = self
+        venueTable.dataSource = self
         
         
         //Subscribe VC to notification when LocationModel changes userLocation property
@@ -172,6 +175,9 @@ class ViewController: UIViewController {
         venueTable.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 2)
         venueTable.backgroundColor = .clear
         
+        //Register venue cell with reuseable identifier
+        venueTable.register(VenueCell.self, forCellReuseIdentifier: "VenueCell")
+        
         verticalStack.addArrangedSubview(venueLabel)
         verticalStack.addArrangedSubview(venueTable)
         
@@ -184,7 +190,7 @@ class ViewController: UIViewController {
         verticalStack.axis = .vertical
         verticalStack.spacing = 20
         
-        //Add sections to stack
+        //Add content sections to stack
         setUpHeader(view: verticalStack)
         setUpCategorySection(view: verticalStack)
         setUpVenueSection(view: verticalStack)
@@ -201,6 +207,27 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return venues.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Get a reuseable cell
+        let cell = venueTable.dequeueReusableCell(withIdentifier: "VenueCell", for: indexPath) as! VenueCell
+        
+        //Get the venue for the specified cell
+        let venue = self.venues[indexPath.row]
+        
+        //Customize the cell 
+        cell.displayVenue(venue)
+        
+        return cell
+    }
+    
+    
+}
+
 extension ViewController: VenueModelProtocol {
     
     //MARK: – Venue Model Protocol Methods
@@ -208,7 +235,11 @@ extension ViewController: VenueModelProtocol {
     func venuesRetrieved(_ venues: [Venue]) {
         self.venues = venues
         
+        //print(self.venues)
+        
+        //Refresh the table, as the venues are initially set to empty
+        venueTable.reloadData()
+        
     }
-    
-    
+        
 }

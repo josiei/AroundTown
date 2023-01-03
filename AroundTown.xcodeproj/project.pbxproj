@@ -19,7 +19,7 @@
 		278F577C295B8618003A5666 /* VenueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F577B295B8618003A5666 /* VenueService.swift */; };
 		278F577E295B8A26003A5666 /* VenueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F577D295B8A26003A5666 /* VenueModel.swift */; };
 		27950097295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27950096295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf */; };
-		279A7A8B2964AC6900D62E9C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A8A2964AC6900D62E9C /* TableViewCell.swift */; };
+		279A7A8B2964AC6900D62E9C /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A8A2964AC6900D62E9C /* VenueCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 		278F577B295B8618003A5666 /* VenueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueService.swift; sourceTree = "<group>"; };
 		278F577D295B8A26003A5666 /* VenueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueModel.swift; sourceTree = "<group>"; };
 		27950096295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SuisseIntlTrial-Bold.otf"; path = "../../../../SuisseIntlTrial-Bold.otf"; sourceTree = "<group>"; };
-		279A7A8A2964AC6900D62E9C /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		279A7A8A2964AC6900D62E9C /* VenueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +112,7 @@
 		279A7A882964A3BC00D62E9C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				279A7A8A2964AC6900D62E9C /* TableViewCell.swift */,
+				279A7A8A2964AC6900D62E9C /* VenueCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 				278F5772295A9BE2003A5666 /* LocationModel.swift in Sources */,
 				278F577E295B8A26003A5666 /* VenueModel.swift in Sources */,
 				278F5778295B814F003A5666 /* Venue.swift in Sources */,
-				279A7A8B2964AC6900D62E9C /* TableViewCell.swift in Sources */,
+				279A7A8B2964AC6900D62E9C /* VenueCell.swift in Sources */,
 				278F575E295A9199003A5666 /* ViewController.swift in Sources */,
 				278F575A295A9199003A5666 /* AppDelegate.swift in Sources */,
 				278F5776295B7F55003A5666 /* Location.swift in Sources */,
