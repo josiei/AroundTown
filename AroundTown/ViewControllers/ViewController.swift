@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     let locationLabel = UILabel()
     let venueTable = UITableView()
     var suisseFont = UIFont(name: "SuisseIntlTrial-Bold", size: 25)
+    let background = UIImage(named: "terrazoSplit")
     
     //UIColor for #be9cf3
     let accentColor = UIColor(red: 0.75, green: 0.61, blue: 0.95, alpha: 1.00)
@@ -34,6 +35,8 @@ class ViewController: UIViewController {
         //Set up layout
         setUpParentView()
         setUpSubViewsProportionally(view: containerView)
+        
+        
         
         //Subscribe VC to notification when LocationModel changes userLocation property
         NotificationCenter.default.addObserver(self, selector: #selector(locationChanged(_:)), name: NSNotification.Name("LocationChanged"), object: nil)
@@ -65,7 +68,12 @@ class ViewController: UIViewController {
         containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         
         //Set Background Color
-        containerView.backgroundColor = .white
+        //containerView.backgroundColor = .white
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.image = background
+        imageView.contentMode = .scaleAspectFill
+        containerView.addSubview(imageView)
+        
         
     }
     
@@ -158,6 +166,7 @@ class ViewController: UIViewController {
         venueLabel.font = suisseFont
         
         venueTable.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 2)
+        venueTable.backgroundColor = .clear
         
         verticalStack.addArrangedSubview(venueLabel)
         verticalStack.addArrangedSubview(venueTable)
