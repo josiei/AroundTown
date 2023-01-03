@@ -68,10 +68,7 @@
 		278F5758295A9199003A5666 /* AroundTown */ = {
 			isa = PBXGroup;
 			children = (
-				278F5775295B7F55003A5666 /* Location.swift */,
-				278F5779295B84DB003A5666 /* Photo.swift */,
-				278F5777295B814F003A5666 /* Venue.swift */,
-				278F577B295B8618003A5666 /* VenueService.swift */,
+				279A7A882964A3BC00D62E9C /* Views */,
 				278F576E295A921E003A5666 /* Models */,
 				278F576D295A9211003A5666 /* ViewControllers */,
 				278F5759295A9199003A5666 /* AppDelegate.swift */,
@@ -95,6 +92,7 @@
 		278F576E295A921E003A5666 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				279A7A892964A63600D62E9C /* Parsing */,
 				278F5771295A9BE2003A5666 /* LocationModel.swift */,
 				278F577D295B8A26003A5666 /* VenueModel.swift */,
 			);
@@ -107,6 +105,24 @@
 				27950096295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		279A7A882964A3BC00D62E9C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		279A7A892964A63600D62E9C /* Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				278F5775295B7F55003A5666 /* Location.swift */,
+				278F5779295B84DB003A5666 /* Photo.swift */,
+				278F5777295B814F003A5666 /* Venue.swift */,
+				278F577B295B8618003A5666 /* VenueService.swift */,
+			);
+			path = Parsing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
