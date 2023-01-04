@@ -235,8 +235,6 @@ extension ViewController: VenueModelProtocol {
     func venuesRetrieved(_ venues: [Venue]) {
         self.venues = venues
         
-        //print(self.venues)
-        
         //Refresh the table, as the venues are initially set to empty
         venueTable.reloadData()
         
