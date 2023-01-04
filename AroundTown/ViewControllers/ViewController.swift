@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     let locationLabel = UILabel()
     let venueTable = UITableView()
     var suisseFont = UIFont(name: "SuisseIntlTrial-Bold", size: 25)
-    let background = UIImage(named: "terrazoSplit")
+    let background = UIImage(named: "blobs")
     
     //UIColor for #be9cf3
     let accentColor = UIColor(red: 0.75, green: 0.61, blue: 0.95, alpha: 1.00)
@@ -90,9 +90,19 @@ class ViewController: UIViewController {
         findVenuesLabel.text = "Find Venues in"
         findVenuesLabel.font = suisseFont
         
-        locationLabel.text = locationModel.userLocation
-        locationLabel.font = suisseFont
-        locationLabel.textColor = accentColor
+//        locationLabel.text = locationModel.userLocation
+//        locationLabel.font = suisseFont
+//        locationLabel.textColor = accentColor
+        
+        let strokeAttributes: [NSAttributedString.Key:Any] = [
+            .strokeColor: UIColor.black,
+            .foregroundColor: accentColor,
+            .strokeWidth: -2.0,
+            .font: suisseFont
+        ]
+            
+        locationLabel.attributedText = NSAttributedString(string: locationModel.userLocation, attributes: strokeAttributes)
+        
         
         
         //Add label to vertical stack
@@ -175,6 +185,7 @@ class ViewController: UIViewController {
         venueTable.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 2)
         venueTable.backgroundColor = .clear
         venueTable.rowHeight = 250
+        venueTable.separatorStyle = .none
         
         //Register venue cell with reuseable identifier
         venueTable.register(VenueCell.self, forCellReuseIdentifier: "VenueCell")

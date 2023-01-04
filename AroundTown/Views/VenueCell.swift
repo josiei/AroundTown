@@ -18,13 +18,47 @@ class VenueCell: UITableViewCell {
         //Save reference to venue
         venueToDisplay = venue
         
-        //Set the Venue name
+        //Modify Cell properties
+        contentView.backgroundColor = .white
+        backgroundColor = .clear
+        
+        //Set up the Venue name label
         venueName.text = venueToDisplay!.name
-        print(venueName.text!)
         venueName.textColor = .black
+        venueName.translatesAutoresizingMaskIntoConstraints = false
+        venueName.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
+        
+        //Set up image
+        venueImageView.translatesAutoresizingMaskIntoConstraints = false
+        venueImageView.contentMode = .scaleAspectFill
+        venueImageView.layer.masksToBounds = true
+        venueImageView.layer.cornerRadius = 2
         
         
         //Download and display image
+        self.getImage()
+
+        self.setupConstraints()
+        
+        
+    }
+    
+    fileprivate func setupConstraints(){
+        contentView.addSubview(venueImageView)
+        contentView.addSubview(venueName)
+        
+        venueImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
+        venueImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
+        venueImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+        venueImageView.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        
+        venueName.topAnchor.constraint(equalTo: venueImageView.bottomAnchor, constant: 8).isActive = true
+        venueName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
+        venueName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+        
+    }
+    
+    fileprivate func getImage(){
         
         //Check that there are photos available
         guard (venueToDisplay!.photos?.count ?? 0) > 0  else {
@@ -67,25 +101,13 @@ class VenueCell: UITableViewCell {
         
         dataTask.resume()
         
-        //Add image and name to the view
-        let verticalStack = UIStackView()
-        verticalStack.axis = .vertical
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
-        //Set up image
-        venueImageView.translatesAutoresizingMaskIntoConstraints = false
-        venueImageView.contentMode = .scaleAspectFill
-        venueImageView.layer.masksToBounds = true
-        venueImageView.layer.cornerRadius = 15
-        
-        
-        verticalStack.addArrangedSubview(venueImageView)
-        verticalStack.addArrangedSubview(venueName)
-        
-        verticalStack.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
-
-        
-        contentView.addSubview(verticalStack)
-        
+        //Set the content view frame
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left:20, bottom: 10, right: 20))
         
     }
 
