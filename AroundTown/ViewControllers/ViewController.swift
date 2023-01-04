@@ -174,6 +174,7 @@ class ViewController: UIViewController {
         //Set up Table View
         venueTable.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 2)
         venueTable.backgroundColor = .clear
+        venueTable.rowHeight = 250
         
         //Register venue cell with reuseable identifier
         venueTable.register(VenueCell.self, forCellReuseIdentifier: "VenueCell")
@@ -224,7 +225,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
+        
     
 }
 

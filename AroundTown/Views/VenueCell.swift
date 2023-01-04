@@ -23,9 +23,6 @@ class VenueCell: UITableViewCell {
         print(venueName.text!)
         venueName.textColor = .black
         
-        //Add to cell's content view
-        //contentView.addSubview(venueName)
-        
         
         //Download and display image
         
@@ -74,11 +71,18 @@ class VenueCell: UITableViewCell {
         let verticalStack = UIStackView()
         verticalStack.axis = .vertical
         
+        //Set up image
+        venueImageView.translatesAutoresizingMaskIntoConstraints = false
+        venueImageView.contentMode = .scaleAspectFill
+        venueImageView.layer.masksToBounds = true
+        venueImageView.layer.cornerRadius = 15
+        
+        
         verticalStack.addArrangedSubview(venueImageView)
         verticalStack.addArrangedSubview(venueName)
         
         verticalStack.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
-//        venueName.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
+
         
         contentView.addSubview(verticalStack)
         
