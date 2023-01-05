@@ -54,6 +54,24 @@ class ViewController: UIViewController {
         locationLabel.text = locationModel.userLocation
     }
     
+    //Makes API call to the category the button corresponds to
+    @objc func handleButtonClick(sender: UIButton){
+        switch sender.tag {
+        case 1:
+            venueModel.getVenues("fun")
+        case 2:
+            venueModel.getVenues("music")
+        case 3:
+            venueModel.getVenues("food")
+        case 4:
+            venueModel.getVenues("trails")
+        case 5:
+            venueModel.getVenues("bar")
+        default:
+            venueModel.getVenues("all")
+        }
+    }
+    
     func setUpParentView(){
         view.addSubview(containerView)
         
@@ -172,6 +190,9 @@ class ViewController: UIViewController {
         button.setBackgroundImage(image, for: .normal)
         button.setBackgroundImage(imageHighlighted, for: .selected)
         button.imageView?.contentMode = .scaleAspectFit
+        
+        //Handle its click
+        button.addTarget(self, action: #selector(handleButtonClick(sender:)), for: .touchUpInside)
         
         view.addArrangedSubview(button)
         
