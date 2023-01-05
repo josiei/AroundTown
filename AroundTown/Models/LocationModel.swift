@@ -19,6 +19,8 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
         //Send a notification when the property changes
         NotificationCenter.default.post(name: NSNotification.Name("LocationChanged"), object: self)
     }}
+    public static var userLat = "37.804363"
+    public static var userLong = "-122.271111"
     
     override init(){
         super.init()
@@ -53,6 +55,8 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
         
         // Get the location of the user
         let userCLLocation = locations.first!
+        LocationModel.userLat = String(userCLLocation.coordinate.latitude)
+        LocationModel.userLong = String(userCLLocation.coordinate.longitude)
         
         //Reverse the CCLocation object to save as a string for UI display
         geoCoder.reverseGeocodeLocation(userCLLocation) { placemarks, error in

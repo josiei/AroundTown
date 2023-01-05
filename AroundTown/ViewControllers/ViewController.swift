@@ -52,6 +52,8 @@ class ViewController: UIViewController {
     //Change the locationLabel text when userLocation gets updated
     @objc func locationChanged(_ notification: Notification){
         locationLabel.text = locationModel.userLocation
+        venueModel.getVenues()
+        venueTable.reloadData()
     }
     
     //Makes API call to the category the button corresponds to

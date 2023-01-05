@@ -21,7 +21,10 @@ class VenueModel {
         
         //Create the URL
         //TODO: Pass in arguments to modify query string based on user input
-        let url = URL(string: "https://api.foursquare.com/v3/places/search?query=\(query)&fields=name%2Ctel%2Clocation%2Cwebsite%2Crating%2Cprice%2Cphotos&near=Modesto%2C%20CA&limit=20")
+        let url = URL(string: "https://api.foursquare.com/v3/places/search?query=\(query)&ll=\(LocationModel.userLat)%2C\(LocationModel.userLong)&fields=name%2Ctel%2Clocation%2Cwebsite%2Crating%2Cprice%2Cphotos&limit=20")
+        
+        print(LocationModel.userLat, LocationModel.userLong)
+        
         
         guard url != nil else {
             print("Error creating url object")
@@ -59,8 +62,12 @@ class VenueModel {
                     
                     DispatchQueue.main.async {
                         
+                        guard let results = venueService.results else {
+                            return
+                        }
+                        
                         //Pass the venues back to ViewController
-                        self.delegate?.venuesRetrieved(venueService.results!)
+                        self.delegate?.venuesRetrieved(results)
                     }
                     
                 } catch {
