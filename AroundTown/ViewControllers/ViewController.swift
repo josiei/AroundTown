@@ -40,6 +40,8 @@ class ViewController: UIViewController {
         venueTable.delegate = self
         venueTable.dataSource = self
         
+        //Set navigation controller background to white
+        navigationController?.navigationBar.barTintColor = .white
         
         //Subscribe VC to notification when LocationModel changes userLocation property
         NotificationCenter.default.addObserver(self, selector: #selector(locationChanged(_:)), name: NSNotification.Name("LocationChanged"), object: nil)
@@ -90,15 +92,12 @@ class ViewController: UIViewController {
         findVenuesLabel.text = "Find Venues in"
         findVenuesLabel.font = suisseFont
         
-//        locationLabel.text = locationModel.userLocation
-//        locationLabel.font = suisseFont
-//        locationLabel.textColor = accentColor
-        
+        //Add stroke to label
         let strokeAttributes: [NSAttributedString.Key:Any] = [
             .strokeColor: UIColor.black,
             .foregroundColor: accentColor,
-            .strokeWidth: -2.0,
-            .font: suisseFont
+            .strokeWidth: -4.0,
+            .font: UIFont(name: "SuisseIntlTrial-Bold", size: 35)!
         ]
             
         locationLabel.attributedText = NSAttributedString(string: locationModel.userLocation, attributes: strokeAttributes)
@@ -123,11 +122,18 @@ class ViewController: UIViewController {
         horizontalStack.distribution = .equalSpacing
         
         //Place buttons in a horizontal stack
-        createBaseButton(view: horizontalStack, imageName: "all-button")
-        createBaseButton(view: horizontalStack, imageName: "music-button")
-        createBaseButton(view: horizontalStack, imageName: "food-button")
-        createBaseButton(view: horizontalStack, imageName: "outdoor-button")
-        createBaseButton(view: horizontalStack, imageName: "bar-button")
+        let allButton = createBaseButton(view: horizontalStack, imageName: "all-button")
+        let musicButton = createBaseButton(view: horizontalStack, imageName: "music-button")
+        let foodButton = createBaseButton(view: horizontalStack, imageName: "food-button")
+        let outdoorButton = createBaseButton(view: horizontalStack, imageName: "outdoor-button")
+        let barButton = createBaseButton(view: horizontalStack, imageName: "bar-button")
+        
+        //Set tags for buttons
+        allButton.tag = 1
+        musicButton.tag = 2
+        foodButton.tag = 3
+        outdoorButton.tag = 4
+        barButton.tag = 5
         
         view.addArrangedSubview(horizontalStack)
         
@@ -152,7 +158,7 @@ class ViewController: UIViewController {
         
     }
     
-    func createBaseButton(view: UIStackView, imageName: String){
+    func createBaseButton(view: UIStackView, imageName: String) -> UIButton {
         let button = UIButton(type: .system)
         
         //Set button's frame size and position
@@ -168,6 +174,8 @@ class ViewController: UIViewController {
         button.imageView?.contentMode = .scaleAspectFit
         
         view.addArrangedSubview(button)
+        
+        return button
     }
     
     func setUpVenueSection(view: UIStackView){
