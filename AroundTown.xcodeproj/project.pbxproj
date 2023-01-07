@@ -20,6 +20,7 @@
 		278F577E295B8A26003A5666 /* VenueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F577D295B8A26003A5666 /* VenueModel.swift */; };
 		27950097295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27950096295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf */; };
 		279A7A8B2964AC6900D62E9C /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A8A2964AC6900D62E9C /* VenueCell.swift */; };
+		279A7A8D296A2E0800D62E9C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A8C296A2E0800D62E9C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		278F577D295B8A26003A5666 /* VenueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueModel.swift; sourceTree = "<group>"; };
 		27950096295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SuisseIntlTrial-Bold.otf"; path = "../../../../SuisseIntlTrial-Bold.otf"; sourceTree = "<group>"; };
 		279A7A8A2964AC6900D62E9C /* VenueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
+		279A7A8C296A2E0800D62E9C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				278F575D295A9199003A5666 /* ViewController.swift */,
+				279A7A8C296A2E0800D62E9C /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				279A7A8D296A2E0800D62E9C /* DetailViewController.swift in Sources */,
 				278F577A295B84DB003A5666 /* Photo.swift in Sources */,
 				278F577C295B8618003A5666 /* VenueService.swift in Sources */,
 				278F5772295A9BE2003A5666 /* LocationModel.swift in Sources */,
