@@ -115,8 +115,8 @@ class ViewController: UIViewController {
         //Add stroke to label
         let strokeAttributes: [NSAttributedString.Key:Any] = [
             .strokeColor: UIColor.black,
-            .foregroundColor: accentColor,
-            .strokeWidth: -4.0,
+            .foregroundColor: UIColor.white,
+            .strokeWidth: -3.0,
             .font: UIFont(name: "SuisseIntlTrial-Bold", size: 35)!
         ]
             

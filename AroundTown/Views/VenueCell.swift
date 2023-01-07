@@ -69,7 +69,9 @@ class VenueCell: UITableViewCell {
         let mainPhoto = venueToDisplay!.photos![0]
         
         //Form URL String
-        let urlString = mainPhoto.prefix! + "original" + mainPhoto.suffix!
+        let prefix = mainPhoto.prefix!
+        let suffix = mainPhoto.suffix!
+        let urlString = prefix + "original" + suffix
         
         //Create the url
         let url = URL(string: urlString)
@@ -89,12 +91,15 @@ class VenueCell: UITableViewCell {
             //If there are no errors and the data exists
             if error == nil && data != nil {
                 
-                DispatchQueue.main.async {
-                    
-                    self.venueImageView.image = UIImage(data: data!)
-                    
-                }
+                //Check that saved url matches the article cell set to display
+                if self.venueToDisplay!.photos![0].prefix == prefix {
                 
+                    DispatchQueue.main.async {
+                        
+                        self.venueImageView.image = UIImage(data: data!)
+                        
+                    }
+                }
                 
             }
         }
