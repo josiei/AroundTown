@@ -15,6 +15,12 @@ class VenueCell: UITableViewCell {
     
     func displayVenue(_ venue: Venue){
         
+        //Clean up cell before reuse
+        venueImageView.image = nil
+        venueImageView.alpha = 0
+        venueName.text = ""
+        venueName.alpha = 0
+        
         //Save reference to venue
         venueToDisplay = venue
         
@@ -34,7 +40,13 @@ class VenueCell: UITableViewCell {
         venueImageView.layer.masksToBounds = true
         venueImageView.layer.cornerRadius = 2
         
-        
+        //Animate label appearance
+        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+            
+            self.venueName.alpha = 1
+            
+        }, completion: nil)
+            
         //Download and display image
         self.getImage()
 
