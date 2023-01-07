@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "outdoor-button@1x.png",
+      "filename" : "outdoor@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "outdoor-button@2x.png",
+      "filename" : "outdoor@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "outdoor-button@3x.png",
+      "filename" : "outdoor@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -16,10 +16,10 @@ class ViewController: UIViewController {
     let locationLabel = UILabel()
     let venueTable = UITableView()
     var suisseFont = UIFont(name: "SuisseIntlTrial-Bold", size: 25)
-    let background = UIImage(named: "blobs")
+    let background = UIImage(named: "gradient")
     
-    //UIColor for #be9cf3
-    let accentColor = UIColor(red: 0.75, green: 0.61, blue: 0.95, alpha: 1.00)
+    //UIColor for #231942
+    let accentColor = UIColor(red: 0.14, green: 0.10, blue: 0.26, alpha: 1.00)
     
     
     
@@ -115,8 +115,8 @@ class ViewController: UIViewController {
         //Add stroke to label
         let strokeAttributes: [NSAttributedString.Key:Any] = [
             .strokeColor: UIColor.black,
-            .foregroundColor: UIColor.white,
-            .strokeWidth: -3.0,
+            .foregroundColor: accentColor,
+            .strokeWidth: 0,
             .font: UIFont(name: "SuisseIntlTrial-Bold", size: 35)!
         ]
             
