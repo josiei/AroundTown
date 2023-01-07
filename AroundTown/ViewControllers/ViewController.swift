@@ -70,6 +70,10 @@ class ViewController: UIViewController {
         default:
             venueModel.getVenues("all")
         }
+        
+        //Reset to the top of the table
+        let indexPath = IndexPath(row: 0, section: 0)
+        self.venueTable.scrollToRow(at: indexPath, at: .top, animated: true)
     }
     
     func setUpParentView(){
