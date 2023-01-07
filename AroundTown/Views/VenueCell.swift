@@ -42,7 +42,7 @@ class VenueCell: UITableViewCell {
         
         //Animate label appearance
         UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
-            
+
             self.venueName.alpha = 1
             
         }, completion: nil)
@@ -51,7 +51,6 @@ class VenueCell: UITableViewCell {
         self.getImage()
 
         self.setupConstraints()
-        
         
     }
     

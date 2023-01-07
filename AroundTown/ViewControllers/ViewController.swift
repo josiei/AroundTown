@@ -21,8 +21,6 @@ class ViewController: UIViewController {
     //UIColor for #231942
     let accentColor = UIColor(red: 0.14, green: 0.10, blue: 0.26, alpha: 1.00)
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -111,20 +109,11 @@ class ViewController: UIViewController {
         let findVenuesLabel = UILabel()
         findVenuesLabel.text = "Find Venues in"
         findVenuesLabel.font = suisseFont
-        
-        //Add stroke to label
-        let strokeAttributes: [NSAttributedString.Key:Any] = [
-            .strokeColor: UIColor.black,
-            .foregroundColor: accentColor,
-            .strokeWidth: 0,
-            .font: UIFont(name: "SuisseIntlTrial-Bold", size: 35)!
-        ]
-            
-        locationLabel.attributedText = NSAttributedString(string: locationModel.userLocation, attributes: strokeAttributes)
-        
-        
-        
-        //Add label to vertical stack
+        locationLabel.font = suisseFont
+        locationLabel.textColor = accentColor
+        locationLabel.font = suisseFont?.withSize(CGFloat(35))
+    
+        //Add labels to vertical stack
         verticalStack.addArrangedSubview(findVenuesLabel)
         verticalStack.addArrangedSubview(locationLabel)
         
