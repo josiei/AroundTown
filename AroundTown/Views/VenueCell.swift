@@ -110,6 +110,14 @@ class VenueCell: UITableViewCell {
                         
                         self.venueImageView.image = UIImage(data: data!)
                         
+                        //Animate the image into view after loading
+                        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+                            
+                            self.venueImageView.alpha = 1
+                            
+                        }, completion: nil)
+                        
+                        
                     }
                 }
                 
