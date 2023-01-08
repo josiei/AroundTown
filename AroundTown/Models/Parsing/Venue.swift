@@ -15,4 +15,5 @@ struct Venue: Decodable {
     var rating: Double?
     var tel: String?
     var website: String?
+    var description: String?
 }

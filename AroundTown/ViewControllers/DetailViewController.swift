@@ -18,7 +18,8 @@ class DetailViewController: UIViewController {
         setUpContainerView(view: view)
         setupHeaderImage(view: containerView)
         setupVenueName(view: containerView)
-        
+        setupAddressLabel(view: containerView)
+        print(venueToDisplay)
         
         //Set background color
         view.backgroundColor = .white
@@ -68,9 +69,27 @@ class DetailViewController: UIViewController {
         
         let imageData = ImageCache.getImage(url: imageUrl)
         headerImageView.image = UIImage(data: imageData!)
+        
+        //Scale image to 30% of view
         headerImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
+        headerImageView.contentMode = .scaleAspectFill
         
+    }
+    
+    func setupAddressLabel(view: UIStackView){
         
+        let address = UILabel()
+        let formattedAddress = """
+        \(venueToDisplay?.location?.address ?? "")
+        \(venueToDisplay?.location?.locality ?? "") \(venueToDisplay?.location?.region ?? "")
+        """
+        
+        address.text = formattedAddress
+        address.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
+        address.numberOfLines = 0
+        print(formattedAddress)
+        
+        view.addArrangedSubview(address)
     }
     
 
