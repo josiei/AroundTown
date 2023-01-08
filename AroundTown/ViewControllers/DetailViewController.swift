@@ -11,16 +11,14 @@ class DetailViewController: UIViewController {
     
     var venueToDisplay:Venue? = nil
     let containerView = UIStackView()
-    let label = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpContainerView(view: view)
         setupHeaderImage(view: containerView)
+        setupVenueName(view: containerView)
         
-        label.text = "test"
-        containerView.addArrangedSubview(label)
         
         //Set background color
         view.backgroundColor = .white
@@ -45,11 +43,20 @@ class DetailViewController: UIViewController {
         
     }
     
+    func setupVenueName(view: UIStackView){
+        let venueName = UILabel()
+        venueName.text = venueToDisplay?.name
+        venueName.font = UIFont(name: "SuisseIntlTrial-Bold", size: 30)
+        venueName.numberOfLines = 0
+        view.addArrangedSubview(venueName)
+    }
+    
     func setupHeaderImage(view: UIStackView){
         
         //TODO: Guard against no photos
         
         let headerImageView = UIImageView()
+        view.addArrangedSubview(headerImageView)
        
         //Grab the first photo
         let mainPhoto = venueToDisplay!.photos![0]
@@ -61,9 +68,9 @@ class DetailViewController: UIViewController {
         
         let imageData = ImageCache.getImage(url: imageUrl)
         headerImageView.image = UIImage(data: imageData!)
-        print(ImageCache.cache)
+        headerImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
         
-        view.addArrangedSubview(headerImageView)
+        
     }
     
 

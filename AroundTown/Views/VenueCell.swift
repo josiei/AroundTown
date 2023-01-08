@@ -33,6 +33,7 @@ class VenueCell: UITableViewCell {
         venueName.textColor = .black
         venueName.translatesAutoresizingMaskIntoConstraints = false
         venueName.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
+        venueName.numberOfLines = 0
         
         //Set up image
         venueImageView.translatesAutoresizingMaskIntoConstraints = false
