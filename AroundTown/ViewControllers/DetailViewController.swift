@@ -11,15 +11,16 @@ class DetailViewController: UIViewController {
     
     var venueToDisplay:Venue? = nil
     let containerView = UIStackView()
+    let background = UIImage(named: "lily")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
         setUpContainerView(view: view)
         setupHeaderImage(view: containerView)
         setupVenueName(view: containerView)
         setupAddressLabel(view: containerView)
-        print(venueToDisplay)
         
         //Set background color
         view.backgroundColor = .white
@@ -32,6 +33,7 @@ class DetailViewController: UIViewController {
         
         //Set the direction
         containerView.axis = .vertical
+        containerView.spacing = 5
         
         //Set to false to take advantage of auto-layout
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +43,12 @@ class DetailViewController: UIViewController {
         containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
         containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        
+        //Set Background Color
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.image = background
+        imageView.contentMode = .scaleAspectFill
+        containerView.addSubview(imageView)
         
     }
     
@@ -72,24 +80,46 @@ class DetailViewController: UIViewController {
         
         //Scale image to 30% of view
         headerImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
-        headerImageView.contentMode = .scaleAspectFill
         
     }
     
     func setupAddressLabel(view: UIStackView){
         
         let address = UILabel()
+        let button = UIButton()
+        let horizontalRow = UIStackView()
+        
+        horizontalRow.axis = .horizontal
+        
+        //Set up address label
         let formattedAddress = """
-        \(venueToDisplay?.location?.address ?? "")
+        \(venueToDisplay?.location?.address ?? "In the city of")
         \(venueToDisplay?.location?.locality ?? "") \(venueToDisplay?.location?.region ?? "")
         """
-        
         address.text = formattedAddress
         address.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
         address.numberOfLines = 0
-        print(formattedAddress)
         
-        view.addArrangedSubview(address)
+        //Add an image for the button
+        let image = UIImage(named: "geo-button")
+        button.setBackgroundImage(image, for: .normal)
+        button.contentMode = .scaleAspectFit
+        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        horizontalRow.addArrangedSubview(button)
+        horizontalRow.addArrangedSubview(address)
+        horizontalRow.alignment = .top
+        horizontalRow.spacing = 8
+        
+        view.addArrangedSubview(horizontalRow)
+        
+    }
+    
+    func setupWebsiteRow(view: UIStackView){
+        
+        
+        
     }
     
 

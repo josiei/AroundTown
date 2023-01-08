@@ -21,7 +21,7 @@ class VenueModel {
         //Make request to FourSquare API
         
         //Create the URL
-        let url = URL(string: "https://api.foursquare.com/v3/places/search?query=\(query)&ll=\(LocationModel.userLat)%2C\(LocationModel.userLong)&fields=name%2Ctel%2Clocation%2Cwebsite%2Crating%2Cprice%2Cphotos&limit=20")
+        let url = URL(string: "https://api.foursquare.com/v3/places/search?query=\(query)&ll=\(LocationModel.userLat)%2C\(LocationModel.userLong)&fields=description%2Cname%2Ctel%2Clocation%2Cwebsite%2Crating%2Cprice%2Cphotos&limit=20")
         
         guard url != nil else {
             print("Error creating url object")
