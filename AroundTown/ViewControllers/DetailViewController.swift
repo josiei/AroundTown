@@ -9,8 +9,12 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    var venueToDisplay:Venue? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(venueToDisplay ?? "")
         
         //Set background color
         view.backgroundColor = .white

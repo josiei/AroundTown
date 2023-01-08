@@ -21,6 +21,7 @@
 		27950097295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27950096295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf */; };
 		279A7A8B2964AC6900D62E9C /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A8A2964AC6900D62E9C /* VenueCell.swift */; };
 		279A7A8D296A2E0800D62E9C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A8C296A2E0800D62E9C /* DetailViewController.swift */; };
+		279A7A96296A715400D62E9C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A95296A715400D62E9C /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		27950096295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SuisseIntlTrial-Bold.otf"; path = "../../../../SuisseIntlTrial-Bold.otf"; sourceTree = "<group>"; };
 		279A7A8A2964AC6900D62E9C /* VenueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
 		279A7A8C296A2E0800D62E9C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		279A7A95296A715400D62E9C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		278F576E295A921E003A5666 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				279A7A97296A716B00D62E9C /* Helpers */,
 				279A7A892964A63600D62E9C /* Parsing */,
 				278F5771295A9BE2003A5666 /* LocationModel.swift */,
 				278F577D295B8A26003A5666 /* VenueModel.swift */,
@@ -129,6 +132,14 @@
 				278F577B295B8618003A5666 /* VenueService.swift */,
 			);
 			path = Parsing;
+			sourceTree = "<group>";
+		};
+		279A7A97296A716B00D62E9C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				279A7A95296A715400D62E9C /* ImageCache.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +218,7 @@
 				278F5772295A9BE2003A5666 /* LocationModel.swift in Sources */,
 				278F577E295B8A26003A5666 /* VenueModel.swift in Sources */,
 				278F5778295B814F003A5666 /* Venue.swift in Sources */,
+				279A7A96296A715400D62E9C /* ImageCache.swift in Sources */,
 				279A7A8B2964AC6900D62E9C /* VenueCell.swift in Sources */,
 				278F575E295A9199003A5666 /* ViewController.swift in Sources */,
 				278F575A295A9199003A5666 /* AppDelegate.swift in Sources */,

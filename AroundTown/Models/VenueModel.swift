@@ -15,6 +15,7 @@ class VenueModel {
     
     var delegate:VenueModelProtocol?
     
+    
     func getVenues(_ query: String = "fun"){
         
         //Make request to FourSquare API
@@ -32,7 +33,7 @@ class VenueModel {
             
         let headers = [
           "accept": "application/json",
-          "Authorization": "fsq3V7p/1uAKt+O9DzdDW9FdulmhYFMxaMQxe3UCc33n23M="
+            "Authorization": "fsq3V7p/1uAKt+O9DzdDW9FdulmhYFMxaMQxe3UCc33n23M="
         ]
         
         //Set the request type

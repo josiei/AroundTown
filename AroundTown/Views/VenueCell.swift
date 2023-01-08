@@ -109,6 +109,9 @@ class VenueCell: UITableViewCell {
                         
                         self.venueImageView.image = UIImage(data: data!)
                         
+                        //Save data to cache
+                        ImageCache.saveImage(url: prefix, imageData: data!)
+                        
                         //Animate the image into view after loading
                         UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
                             
@@ -144,6 +147,10 @@ class VenueCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        let selectedBackgroundView = UIView()
+        selectedBackgroundView.backgroundColor = UIColor.clear
+        
+        self.selectedBackgroundView = selectedBackgroundView
     }
 
 }

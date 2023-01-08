@@ -262,9 +262,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let detailVC = DetailViewController()
         
+        //Pass venue information to detail view
+        detailVC.venueToDisplay = self.venues[indexPath.row]
+        
+        //add detail view controller to navigation stack
         navigationController?.pushViewController(detailVC, animated: true)
+        
     }
         
     
