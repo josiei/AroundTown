@@ -268,7 +268,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         //Pass venue information to detail view
         detailVC.venueToDisplay = self.venues[indexPath.row]
         
-        //add detail view controller to navigation stack
+        //Add detail view controller to navigation stack
         navigationController?.pushViewController(detailVC, animated: true)
         
     }

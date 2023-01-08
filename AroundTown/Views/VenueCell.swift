@@ -84,6 +84,9 @@ class VenueCell: UITableViewCell {
         let suffix = mainPhoto.suffix!
         let urlString = prefix + "original" + suffix
         
+        
+        //TODO: check cache to see if image has already been loaded 
+        
         //Create the url
         let url = URL(string: urlString)
         
@@ -109,8 +112,8 @@ class VenueCell: UITableViewCell {
                         
                         self.venueImageView.image = UIImage(data: data!)
                         
-                        //Save data to cache
-                        ImageCache.saveImage(url: prefix, imageData: data!)
+                        //Save image data to cache
+                        ImageCache.saveImage(url: urlString, imageData: data!)
                         
                         //Animate the image into view after loading
                         UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
