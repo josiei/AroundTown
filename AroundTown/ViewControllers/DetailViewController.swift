@@ -16,11 +16,10 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
         setUpContainerView(view: view)
         setupHeaderImage(view: containerView)
         setupVenueName(view: containerView)
-        setupAddressLabel(view: containerView)
+        setupAddressRow(view: containerView)
         setupWebsiteRow(view: containerView)
         
         //Set background color
@@ -36,7 +35,6 @@ class DetailViewController: UIViewController {
         containerView.axis = .vertical
         containerView.spacing = 5
         
-        //Set to false to take advantage of auto-layout
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         //Pin view to all corners of the screen
@@ -84,7 +82,16 @@ class DetailViewController: UIViewController {
         
     }
     
-    func setupAddressLabel(view: UIStackView){
+    func setupIcon(imageName: String, button: UIButton){
+        //Add an image for the button
+        let image = UIImage(named: imageName)
+        button.setBackgroundImage(image, for: .normal)
+        button.contentMode = .scaleAspectFit
+        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 40).isActive = true
+    }
+    
+    func setupAddressRow(view: UIStackView){
         
         let address = UILabel()
         let button = UIButton()
@@ -101,12 +108,7 @@ class DetailViewController: UIViewController {
         address.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
         address.numberOfLines = 0
         
-        //Add an image for the button
-        let image = UIImage(named: "geo-button")
-        button.setBackgroundImage(image, for: .normal)
-        button.contentMode = .scaleAspectFit
-        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        setupIcon(imageName: "geo-button", button: button)
         
         horizontalRow.addArrangedSubview(button)
         horizontalRow.addArrangedSubview(address)
@@ -119,6 +121,8 @@ class DetailViewController: UIViewController {
     
     func setupWebsiteRow(view: UIStackView){
         
+        //TODO: Add guard against nil website
+        
         let horizontalRow = UIStackView()
         horizontalRow.axis = .horizontal
         view.addArrangedSubview(horizontalRow)
@@ -128,32 +132,18 @@ class DetailViewController: UIViewController {
         
         horizontalRow.addArrangedSubview(button)
         horizontalRow.addArrangedSubview(websiteLabel)
-        horizontalRow.alignment = .top
         horizontalRow.spacing = 8
         
-        //Add an image for the button
-        let image = UIImage(named: "navigation-button")
-        button.setBackgroundImage(image, for: .normal)
-        button.contentMode = .scaleAspectFit
-        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        setupIcon(imageName: "navigation-button", button: button)
         
         //Format Label
-        websiteLabel.text = "Visit our website"
+        let attributedText = NSMutableAttributedString(string: "Visit our website")
+        attributedText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: _NSRange(location: 0, length: attributedText.length))
+        websiteLabel.attributedText = attributedText
         websiteLabel.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
         websiteLabel.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
