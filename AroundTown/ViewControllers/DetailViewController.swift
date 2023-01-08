@@ -21,6 +21,7 @@ class DetailViewController: UIViewController {
         setupHeaderImage(view: containerView)
         setupVenueName(view: containerView)
         setupAddressLabel(view: containerView)
+        setupWebsiteRow(view: containerView)
         
         //Set background color
         view.backgroundColor = .white
@@ -118,7 +119,29 @@ class DetailViewController: UIViewController {
     
     func setupWebsiteRow(view: UIStackView){
         
+        let horizontalRow = UIStackView()
+        horizontalRow.axis = .horizontal
+        view.addArrangedSubview(horizontalRow)
         
+        let websiteLabel = UILabel()
+        let button = UIButton()
+        
+        horizontalRow.addArrangedSubview(button)
+        horizontalRow.addArrangedSubview(websiteLabel)
+        horizontalRow.alignment = .top
+        horizontalRow.spacing = 8
+        
+        //Add an image for the button
+        let image = UIImage(named: "navigation-button")
+        button.setBackgroundImage(image, for: .normal)
+        button.contentMode = .scaleAspectFit
+        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        //Format Label
+        websiteLabel.text = "Visit our website"
+        websiteLabel.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
+        websiteLabel.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
         
     }
     
