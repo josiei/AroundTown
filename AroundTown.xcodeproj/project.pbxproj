@@ -24,6 +24,7 @@
 		279A7A96296A715400D62E9C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A95296A715400D62E9C /* ImageCache.swift */; };
 		279A7A99296BA2B500D62E9C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A98296BA2B500D62E9C /* MapView.swift */; };
 		279A7A9B296BEEAE00D62E9C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A9A296BEEAE00D62E9C /* WebViewController.swift */; };
+		279A7A9E296BFEEA00D62E9C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279A7A9D296BFEEA00D62E9C /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		279A7A95296A715400D62E9C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		279A7A98296BA2B500D62E9C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		279A7A9A296BEEAE00D62E9C /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		279A7A9D296BFEEA00D62E9C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				279A7A9E296BFEEA00D62E9C /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +67,7 @@
 			children = (
 				278F5758295A9199003A5666 /* AroundTown */,
 				278F5757295A9199003A5666 /* Products */,
+				279A7A9C296BFEEA00D62E9C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +150,14 @@
 				279A7A95296A715400D62E9C /* ImageCache.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		279A7A9C296BFEEA00D62E9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				279A7A9D296BFEEA00D62E9C /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
