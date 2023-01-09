@@ -55,7 +55,7 @@ class VenueCell: UITableViewCell {
         
     }
     
-    fileprivate func setupConstraints(){
+    private func setupConstraints(){
         contentView.addSubview(venueImageView)
         contentView.addSubview(venueName)
         
@@ -70,7 +70,7 @@ class VenueCell: UITableViewCell {
         
     }
     
-    fileprivate func getImage(){
+    private func getImage(){
         
         //Check that there are photos available
         guard (venueToDisplay!.photos?.count ?? 0) > 0  else {
