@@ -19,8 +19,7 @@ class DetailViewController: UIViewController {
         setUpContainerView(view: view)
         setupHeaderImage(view: containerView)
         setupVenueName(view: containerView)
-        setupAddressRow(view: containerView)
-        setupWebsiteRow(view: containerView)
+        setupDetailRows(view: containerView)
         
         //Set background color
         view.backgroundColor = .white
@@ -97,8 +96,8 @@ class DetailViewController: UIViewController {
         let button = UIButton()
         let horizontalRow = UIStackView()
         
-        horizontalRow.axis = .horizontal
-        
+        view.addArrangedSubview(horizontalRow)
+
         //Set up address label
         let formattedAddress = """
         \(venueToDisplay?.location?.address ?? "In the city of")
@@ -108,40 +107,86 @@ class DetailViewController: UIViewController {
         address.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
         address.numberOfLines = 0
         
-        setupIcon(imageName: "geo-button", button: button)
-        
-        horizontalRow.addArrangedSubview(button)
-        horizontalRow.addArrangedSubview(address)
         horizontalRow.alignment = .top
-        horizontalRow.spacing = 8
         
-        view.addArrangedSubview(horizontalRow)
-        
+        setupIcon(imageName: "geo-button", button: button)
+        setupHorizontalRow(horizontalRow: horizontalRow, button: button, label: address)
+                
     }
     
     func setupWebsiteRow(view: UIStackView){
         
-        //TODO: Add guard against nil website
+        //TODO: Add case for nil website
         
         let horizontalRow = UIStackView()
-        horizontalRow.axis = .horizontal
         view.addArrangedSubview(horizontalRow)
         
         let websiteLabel = UILabel()
         let button = UIButton()
         
-        horizontalRow.addArrangedSubview(button)
-        horizontalRow.addArrangedSubview(websiteLabel)
-        horizontalRow.spacing = 8
-        
+        setupHorizontalRow(horizontalRow: horizontalRow, button: button, label: websiteLabel)
         setupIcon(imageName: "navigation-button", button: button)
         
-        //Format Label
+        //Format label with underline
         let attributedText = NSMutableAttributedString(string: "Visit our website")
         attributedText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: _NSRange(location: 0, length: attributedText.length))
         websiteLabel.attributedText = attributedText
         websiteLabel.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
         websiteLabel.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+        
+    }
+    
+    func setupTelephoneRow(view: UIStackView){
+        
+        let horizontalRow = UIStackView()
+        view.addArrangedSubview(horizontalRow)
+        
+        let telephoneLabel = UILabel()
+        let button = UIButton()
+        
+        if venueToDisplay?.tel == nil {
+            telephoneLabel.text = "Not available"
+        } else {
+            telephoneLabel.text = venueToDisplay?.tel
+        }
+        
+        telephoneLabel.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
+        
+        setupHorizontalRow(horizontalRow: horizontalRow, button: button, label: telephoneLabel)
+        setupIcon(imageName: "phone-button", button: button)
+        
+                
+    }
+    
+    func setupHorizontalRow(horizontalRow: UIStackView, button: UIButton, label: UILabel){
+        
+        horizontalRow.axis = .horizontal
+        horizontalRow.addArrangedSubview(button)
+        horizontalRow.addArrangedSubview(label)
+        horizontalRow.spacing = 8
+        
+        //Set the width of the horizontal stack
+        horizontalRow.translatesAutoresizingMaskIntoConstraints = false
+        horizontalRow.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        
+    }
+    
+    func setupDetailRows(view: UIStackView){
+        let verticalStack = UIStackView()
+        view.addArrangedSubview(verticalStack)
+        
+        verticalStack.axis = .vertical
+        verticalStack.distribution = .fillProportionally
+        verticalStack.spacing = 10
+        
+        //Set the width of the vertical stack
+        verticalStack.translatesAutoresizingMaskIntoConstraints = false
+        verticalStack.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        
+        setupAddressRow(view: verticalStack)
+        setupWebsiteRow(view: verticalStack)
+        setupTelephoneRow(view: verticalStack)
+        
         
     }
     
