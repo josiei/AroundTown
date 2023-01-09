@@ -20,21 +20,21 @@ class DetailViewController: UIViewController {
         
         setUpContainerView(view: view)
         setupHeaderImage(view: containerView)
-        setupVenueName(view: containerView)
-        setupDetailRows(view: containerView)
+        setupBody(view: containerView)
         containerView.addArrangedSubview(mapView)
+        setupMap()
         
         //Set background color
         view.backgroundColor = .white
 
     }
     
-//    func setupMap(){
-//        let location = CLLocationCoordinate2D(latitude: 37.785834, longitude: -122.406417)
-//        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-//        let region = MKCoordinateRegion(center: location, span: span)
-//        mapView.setRegion(region: region, animated: true)
-//    }
+    func setupMap(){
+        let location = CLLocationCoordinate2D(latitude: 37.785834, longitude: -122.406417)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: location, span: span)
+        mapView.setRegion(region: region, animated: true)
+    }
     
     func setUpContainerView(view: UIView){
         //Add to view hierachy
@@ -61,11 +61,14 @@ class DetailViewController: UIViewController {
     }
     
     func setupVenueName(view: UIStackView){
+        
         let venueName = UILabel()
+        view.addArrangedSubview(venueName)
+        
         venueName.text = venueToDisplay?.name
         venueName.font = UIFont(name: "SuisseIntlTrial-Bold", size: 30)
         venueName.numberOfLines = 0
-        view.addArrangedSubview(venueName)
+        
     }
     
     func setupHeaderImage(view: UIStackView){
@@ -120,7 +123,7 @@ class DetailViewController: UIViewController {
         horizontalRow.alignment = .top
         
         setupIcon(imageName: "geo-button", button: button)
-        setupHorizontalRow(horizontalRow: horizontalRow, button: button, label: address)
+        setupHorizontalRow(horizontalRow: horizontalRow, button: button, label: address, view: view)
                 
     }
     
@@ -134,7 +137,7 @@ class DetailViewController: UIViewController {
         let websiteLabel = UILabel()
         let button = UIButton()
         
-        setupHorizontalRow(horizontalRow: horizontalRow, button: button, label: websiteLabel)
+        setupHorizontalRow(horizontalRow: horizontalRow, button: button, label: websiteLabel, view: view)
         setupIcon(imageName: "navigation-button", button: button)
         
         //Format label with underline
@@ -162,13 +165,13 @@ class DetailViewController: UIViewController {
         
         telephoneLabel.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
         
-        setupHorizontalRow(horizontalRow: horizontalRow, button: button, label: telephoneLabel)
+        setupHorizontalRow(horizontalRow: horizontalRow, button: button, label: telephoneLabel, view: view)
         setupIcon(imageName: "phone-button", button: button)
         
                 
     }
     
-    func setupHorizontalRow(horizontalRow: UIStackView, button: UIButton, label: UILabel){
+    func setupHorizontalRow(horizontalRow: UIStackView, button: UIButton, label: UILabel, view: UIStackView){
         
         horizontalRow.axis = .horizontal
         horizontalRow.addArrangedSubview(button)
@@ -177,7 +180,10 @@ class DetailViewController: UIViewController {
         
         //Set the width of the horizontal stack
         horizontalRow.translatesAutoresizingMaskIntoConstraints = false
-        horizontalRow.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        let width = horizontalRow.widthAnchor.constraint(equalTo: view.widthAnchor)
+        width.constant -= 30
+        width.isActive = true
+        
         
     }
     
@@ -193,11 +199,27 @@ class DetailViewController: UIViewController {
         verticalStack.translatesAutoresizingMaskIntoConstraints = false
         verticalStack.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         
+        //Add margin spacing 
+        verticalStack.layoutMargins = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 0)
+        verticalStack.isLayoutMarginsRelativeArrangement = true
+        
         setupAddressRow(view: verticalStack)
         setupWebsiteRow(view: verticalStack)
         setupTelephoneRow(view: verticalStack)
         
         
+    }
+    
+    func setupBody(view: UIStackView){
+        let verticalStack = UIStackView()
+        view.addArrangedSubview(verticalStack)
+        
+        verticalStack.axis = .vertical
+        verticalStack.spacing = 15
+        setupVenueName(view: verticalStack)
+        setupDetailRows(view: verticalStack)
+        
+        view.addArrangedSubview(verticalStack)
     }
     
 
