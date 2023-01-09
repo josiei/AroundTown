@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import MapKit
 
 class DetailViewController: UIViewController {
     
     var venueToDisplay:Venue? = nil
     let containerView = UIStackView()
     let background = UIImage(named: "lily")
+    let mapView = MapView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +22,19 @@ class DetailViewController: UIViewController {
         setupHeaderImage(view: containerView)
         setupVenueName(view: containerView)
         setupDetailRows(view: containerView)
+        containerView.addArrangedSubview(mapView)
         
         //Set background color
         view.backgroundColor = .white
 
     }
+    
+//    func setupMap(){
+//        let location = CLLocationCoordinate2D(latitude: 37.785834, longitude: -122.406417)
+//        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+//        let region = MKCoordinateRegion(center: location, span: span)
+//        mapView.setRegion(region: region, animated: true)
+//    }
     
     func setUpContainerView(view: UIView){
         //Add to view hierachy
