@@ -170,24 +170,49 @@ class DetailViewController: UIViewController {
                 
     }
     
-    func setupWebsiteRow(view: UIStackView){
+    @objc func tappedLabel() {
         
-        //TODO: Add case for nil website
+        let webviewVC = WebViewController()
+        
+        //Pass webviewVC the website url
+        webviewVC.websiteUrl = venueToDisplay?.website
+        
+        //Add to the navigation controller
+        navigationController?.pushViewController(webviewVC, animated: true)
+        
+    }
+    
+    func setupWebsiteRow(view: UIStackView){
         
         let horizontalRow = UIStackView()
         view.addArrangedSubview(horizontalRow)
         
         let websiteLabel = UILabel()
         let button = UIButton()
-        
+                
         setupHorizontalRow(horizontalRow: horizontalRow, button: button, label: websiteLabel, view: view)
         setupIcon(imageName: "navigation-button", button: button)
         
-        //Format label with underline
-        let attributedText = NSMutableAttributedString(string: "Visit our website")
-        attributedText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: _NSRange(location: 0, length: attributedText.length))
-        websiteLabel.attributedText = attributedText
+        //Check if there is a website to display
+        if venueToDisplay?.website == nil {
+            websiteLabel.text = "No website available"
+        } else {
+            
+            // Format label with underline
+            let attributedText = NSMutableAttributedString(string: "Visit our website")
+            attributedText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: _NSRange(location: 0, length: attributedText.length))
+            websiteLabel.attributedText = attributedText
+            
+            //Add tapRecognizer to label
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedLabel))
+            websiteLabel.addGestureRecognizer(tapGestureRecognizer)
+            websiteLabel.isUserInteractionEnabled = true
+            
+        }
+        
         websiteLabel.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
+        
+        //Center label with icon
         websiteLabel.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
         
     }

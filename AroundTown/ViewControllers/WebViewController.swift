@@ -10,13 +10,19 @@ import WebKit
 
 class WebViewController: UIViewController {
     
+    var webView = WKWebView()
     var websiteUrl: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        webView.navigationDelegate = self
     }
     
 
+}
+
+extension WebViewController: WKNavigationDelegate {
+    
+    
 }
