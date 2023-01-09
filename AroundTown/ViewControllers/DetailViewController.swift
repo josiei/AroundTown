@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class DetailViewController: UIViewController {
     
@@ -20,13 +21,19 @@ class DetailViewController: UIViewController {
         
         setUpContainerView(view: view)
         setupHeaderImage(view: containerView)
-        setupBody(view: containerView)
+        setupDetailRows(view: containerView)
         containerView.addArrangedSubview(mapView)
         setupMap()
         
         //Set background color
         view.backgroundColor = .white
 
+    }
+    
+    //In progress
+    func getCoordinatesOfVenue() -> CLLocationCoordinate2D {
+        
+        return CLLocationCoordinate2D(latitude: 37.785834, longitude: -122.406417)
     }
     
     func setupMap(){
@@ -42,7 +49,7 @@ class DetailViewController: UIViewController {
         
         //Set the direction
         containerView.axis = .vertical
-        containerView.spacing = 5
+        containerView.spacing = 25
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -203,6 +210,7 @@ class DetailViewController: UIViewController {
         verticalStack.layoutMargins = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 0)
         verticalStack.isLayoutMarginsRelativeArrangement = true
         
+        setupVenueName(view: verticalStack)
         setupAddressRow(view: verticalStack)
         setupWebsiteRow(view: verticalStack)
         setupTelephoneRow(view: verticalStack)
@@ -210,17 +218,6 @@ class DetailViewController: UIViewController {
         
     }
     
-    func setupBody(view: UIStackView){
-        let verticalStack = UIStackView()
-        view.addArrangedSubview(verticalStack)
-        
-        verticalStack.axis = .vertical
-        verticalStack.spacing = 15
-        setupVenueName(view: verticalStack)
-        setupDetailRows(view: verticalStack)
-        
-        view.addArrangedSubview(verticalStack)
-    }
     
 
 }
