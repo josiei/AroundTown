@@ -23,22 +23,50 @@ class DetailViewController: UIViewController {
         setupHeaderImage(view: containerView)
         setupDetailRows(view: containerView)
         containerView.addArrangedSubview(mapView)
-        setupMap()
+        getCoordinatesOfVenue()
         
         //Set background color
         view.backgroundColor = .white
 
     }
     
-    //In progress
-    func getCoordinatesOfVenue() -> CLLocationCoordinate2D {
+    func getCoordinatesOfVenue(){
         
-        return CLLocationCoordinate2D(latitude: 37.785834, longitude: -122.406417)
+        let address = "\(venueToDisplay?.location?.address ?? "") \(venueToDisplay?.location?.locality ?? ""), \(venueToDisplay?.location?.region ?? ""))"
+        let geocoder = CLGeocoder()
+        var lat: Double?
+        var long: Double?
+        
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
+            
+            //If there are errors, or no items in placemarks exit
+            guard error == nil else {
+                print(error!)
+                return
+            }
+            
+            guard let placemark = placemarks?.first else {
+                print("no placemarks to display")
+                return
+            }
+            
+            guard let location = placemark.location else {
+                return
+            }
+            
+            lat = location.coordinate.latitude
+            long = location.coordinate.longitude
+            
+            self.setupMap(lat: lat!, long: long!)
+            
+            
+        }
+        
     }
     
-    func setupMap(){
-        let location = CLLocationCoordinate2D(latitude: 37.785834, longitude: -122.406417)
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+    func setupMap(lat: Double, long: Double){
+        let location = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region: region, animated: true)
     }
