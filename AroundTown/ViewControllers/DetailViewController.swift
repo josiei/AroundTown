@@ -65,10 +65,18 @@ class DetailViewController: UIViewController {
     }
     
     func setupMap(lat: Double, long: Double){
+        
+        //Set region of map
         let location = CLLocationCoordinate2D(latitude: lat, longitude: long)
         let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region: region, animated: true)
+        
+        //Set pin
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location
+        mapView.addAnnotation(annotation: annotation)
+        
     }
     
     func setUpContainerView(view: UIView){
