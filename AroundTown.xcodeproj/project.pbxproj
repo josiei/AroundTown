@@ -23,6 +23,7 @@
 		279A7A8D296A2E0800D62E9C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A8C296A2E0800D62E9C /* DetailViewController.swift */; };
 		279A7A96296A715400D62E9C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A95296A715400D62E9C /* ImageCache.swift */; };
 		279A7A99296BA2B500D62E9C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A98296BA2B500D62E9C /* MapView.swift */; };
+		279A7A9B296BEEAE00D62E9C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A9A296BEEAE00D62E9C /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		279A7A8C296A2E0800D62E9C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		279A7A95296A715400D62E9C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		279A7A98296BA2B500D62E9C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		279A7A9A296BEEAE00D62E9C /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			children = (
 				278F575D295A9199003A5666 /* ViewController.swift */,
 				279A7A8C296A2E0800D62E9C /* DetailViewController.swift */,
+				279A7A9A296BEEAE00D62E9C /* WebViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				279A7A8B2964AC6900D62E9C /* VenueCell.swift in Sources */,
 				278F575E295A9199003A5666 /* ViewController.swift in Sources */,
 				278F575A295A9199003A5666 /* AppDelegate.swift in Sources */,
+				279A7A9B296BEEAE00D62E9C /* WebViewController.swift in Sources */,
 				278F5776295B7F55003A5666 /* Location.swift in Sources */,
 				278F575C295A9199003A5666 /* SceneDelegate.swift in Sources */,
 			);
