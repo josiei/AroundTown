@@ -15,12 +15,8 @@ class ViewController: UIViewController {
     let containerView = UIStackView()
     let locationLabel = UILabel()
     let venueTable = UITableView()
-    var suisseFont = UIFont(name: "SuisseIntlTrial-Bold", size: 25)
     let background = UIImage(named: "gradient")
     var selectedButton: UIButton?
-    
-    //UIColor for #231942
-    let accentColor = UIColor(red: 0.14, green: 0.10, blue: 0.26, alpha: 1.00)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,7 +107,7 @@ class ViewController: UIViewController {
         containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         
-        //Set Background Color
+        //Set Background Image
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = background
         imageView.contentMode = .scaleAspectFill
@@ -130,10 +126,10 @@ class ViewController: UIViewController {
         //Set up Labels
         let findVenuesLabel = UILabel()
         findVenuesLabel.text = "Find Venues in"
-        findVenuesLabel.font = suisseFont
-        locationLabel.font = suisseFont
-        locationLabel.textColor = accentColor
-        locationLabel.font = suisseFont?.withSize(CGFloat(35))
+        findVenuesLabel.font = Fonts.suisse25
+        locationLabel.font = Fonts.suisse25
+        locationLabel.textColor = Fonts.accentColor
+        locationLabel.font = Fonts.suisse35
     
         //Add labels to vertical stack
         verticalStack.addArrangedSubview(findVenuesLabel)
@@ -185,7 +181,7 @@ class ViewController: UIViewController {
         //Customize label
         let browseLabel = UILabel()
         browseLabel.text = "Browse By Category"
-        browseLabel.font = suisseFont
+        browseLabel.font = Fonts.suisse25
         
         verticalStack.addArrangedSubview(browseLabel)
         createCategoryRow(view: verticalStack)
@@ -230,12 +226,12 @@ class ViewController: UIViewController {
         //Customize label
         let venueLabel = UILabel()
         venueLabel.text = "Places For You"
-        venueLabel.font = suisseFont
+        venueLabel.font = Fonts.suisse25
         
         //Set up Table View
         venueTable.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 2)
         venueTable.backgroundColor = .clear
-        venueTable.rowHeight = 250
+        venueTable.rowHeight = Layout.tableRowHeight
         venueTable.separatorStyle = .none
         
         //Register venue cell with reuseable identifier

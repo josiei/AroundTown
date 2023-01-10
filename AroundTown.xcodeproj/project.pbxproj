@@ -26,6 +26,8 @@
 		279A7A9B296BEEAE00D62E9C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7A9A296BEEAE00D62E9C /* WebViewController.swift */; };
 		279A7A9E296BFEEA00D62E9C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279A7A9D296BFEEA00D62E9C /* WebKit.framework */; };
 		279A7AA1296D1F9F00D62E9C /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7AA0296D1F9F00D62E9C /* Button.swift */; };
+		279A7AA3296D385600D62E9C /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7AA2296D385600D62E9C /* Layout.swift */; };
+		279A7AA5296D3BD300D62E9C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7AA4296D3BD300D62E9C /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		279A7A9A296BEEAE00D62E9C /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		279A7A9D296BFEEA00D62E9C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		279A7AA0296D1F9F00D62E9C /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		279A7AA2296D385600D62E9C /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		279A7AA4296D3BD300D62E9C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				279A7AA0296D1F9F00D62E9C /* Button.swift */,
+				279A7AA2296D385600D62E9C /* Layout.swift */,
+				279A7AA4296D3BD300D62E9C /* Fonts.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -246,7 +252,9 @@
 				278F577C295B8618003A5666 /* VenueService.swift in Sources */,
 				278F5772295A9BE2003A5666 /* LocationModel.swift in Sources */,
 				279A7A99296BA2B500D62E9C /* MapView.swift in Sources */,
+				279A7AA3296D385600D62E9C /* Layout.swift in Sources */,
 				278F577E295B8A26003A5666 /* VenueModel.swift in Sources */,
+				279A7AA5296D3BD300D62E9C /* Fonts.swift in Sources */,
 				278F5778295B814F003A5666 /* Venue.swift in Sources */,
 				279A7A96296A715400D62E9C /* ImageCache.swift in Sources */,
 				279A7A8B2964AC6900D62E9C /* VenueCell.swift in Sources */,

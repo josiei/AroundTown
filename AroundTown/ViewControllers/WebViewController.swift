@@ -26,8 +26,6 @@ class WebViewController: UIViewController {
         //If there is a url
         if websiteUrl != nil {
             
-            print("WEEEEEB SITE URL", websiteUrl!)
-            
             let url = URL(string: websiteUrl!)
             
             guard url != nil else {

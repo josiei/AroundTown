@@ -131,9 +131,12 @@ class DetailViewController: UIViewController {
         
         let imageData = ImageCache.getImage(url: imageUrl)
         headerImageView.image = UIImage(data: imageData!)
+        headerImageView.contentMode = .scaleAspectFill
+        headerImageView.clipsToBounds = true
         
         //Scale image to 30% of view
         headerImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
+        
         
     }
     
@@ -144,7 +147,7 @@ class DetailViewController: UIViewController {
         button.contentMode = .scaleAspectFit
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        button.isUserInteractionEnabled = false 
+        button.isUserInteractionEnabled = false
     }
     
     func setupAddressRow(view: UIStackView){
