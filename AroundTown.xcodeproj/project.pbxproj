@@ -30,6 +30,7 @@
 		279A7AA5296D3BD300D62E9C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7AA4296D3BD300D62E9C /* Fonts.swift */; };
 		279A7AA7296DDEE100D62E9C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 279A7AA6296DDEE100D62E9C /* README.md */; };
 		279A7AA9296E127E00D62E9C /* Walkthrough.gif in Resources */ = {isa = PBXBuildFile; fileRef = 279A7AA8296E127E00D62E9C /* Walkthrough.gif */; };
+		279A7AAC296E254C00D62E9C /* DataFlow.png in Resources */ = {isa = PBXBuildFile; fileRef = 279A7AAB296E254C00D62E9C /* DataFlow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		279A7AA4296D3BD300D62E9C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		279A7AA6296DDEE100D62E9C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		279A7AA8296E127E00D62E9C /* Walkthrough.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Walkthrough.gif; sourceTree = "<group>"; };
+		279A7AAB296E254C00D62E9C /* DataFlow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DataFlow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +77,7 @@
 		278F574D295A9199003A5666 = {
 			isa = PBXGroup;
 			children = (
-				279A7AA8296E127E00D62E9C /* Walkthrough.gif */,
+				279A7AAA296E24DC00D62E9C /* ReadmeAssets */,
 				279A7AA6296DDEE100D62E9C /* README.md */,
 				278F5758295A9199003A5666 /* AroundTown */,
 				278F5757295A9199003A5666 /* Products */,
@@ -183,6 +185,15 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		279A7AAA296E24DC00D62E9C /* ReadmeAssets */ = {
+			isa = PBXGroup;
+			children = (
+				279A7AAB296E254C00D62E9C /* DataFlow.png */,
+				279A7AA8296E127E00D62E9C /* Walkthrough.gif */,
+			);
+			path = ReadmeAssets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,6 +254,7 @@
 				27950097295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf in Resources */,
 				278F5766295A919B003A5666 /* LaunchScreen.storyboard in Resources */,
 				279A7AA7296DDEE100D62E9C /* README.md in Resources */,
+				279A7AAC296E254C00D62E9C /* DataFlow.png in Resources */,
 				279A7AA9296E127E00D62E9C /* Walkthrough.gif in Resources */,
 				278F5763295A919B003A5666 /* Assets.xcassets in Resources */,
 			);
