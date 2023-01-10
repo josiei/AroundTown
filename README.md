@@ -1,19 +1,20 @@
 # README – Welcome to Around Town! 
 
 ## Summary 
+    ![](Walkthrough.gif)
 
 ## Requirements
 
 ## Process 
 
 ## Libraries / API's Used
-    ## Four Square API 
+    ### Four Square API 
     
     ### Core Location
     
     ### MapKit 
     
-    ## WebKit
+    ### WebKit
 
 ## How to Setup 
 
@@ -44,6 +45,8 @@
     ### Passing data through using a property for DetailViewController and WebViewController
     
     ### Encapsulating MapView and Venue Cell
+    
+    ### Using Image Cache 
     
     ### Using Notification center for detecting change in user's location
     
