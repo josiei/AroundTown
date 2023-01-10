@@ -86,7 +86,23 @@ class VenueCell: UITableViewCell {
         let urlString = prefix + "original" + suffix
         
         
-        //TODO: check cache to see if image has already been loaded 
+        //Check cache to see if image has been loaded before
+        if let imageData = ImageCache.getImage(url: urlString) {
+            
+            //Set the image view
+            venueImageView.image = UIImage(data: imageData)
+            
+            //Add fade in
+            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+                
+                self.venueImageView.alpha = 1
+                
+            }, completion: nil)
+            
+            return
+        }
+        
+        
         
         //Create the url
         let url = URL(string: urlString)
