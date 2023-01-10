@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     let venueTable = UITableView()
     var suisseFont = UIFont(name: "SuisseIntlTrial-Bold", size: 25)
     let background = UIImage(named: "gradient")
+    var selectedButton: UIButton?
     
     //UIColor for #231942
     let accentColor = UIColor(red: 0.14, green: 0.10, blue: 0.26, alpha: 1.00)
@@ -56,6 +57,9 @@ class ViewController: UIViewController {
     
     //Makes API call to the category the button corresponds to
     @objc func handleButtonClick(sender: UIButton){
+        
+        updateSelectedButton(sender: sender)
+        
         switch sender.tag {
         case 1:
             venueModel.getVenues("fun")
@@ -76,7 +80,20 @@ class ViewController: UIViewController {
         self.venueTable.scrollToRow(at: indexPath, at: .top, animated: true)
     }
     
+    func updateSelectedButton(sender: UIButton){
+        
+        //Deselect current button
+        if let selected = selectedButton {
+            selected.isSelected = false
+        }
+        
+        sender.isSelected = true
+        selectedButton = sender
+        
+    }
+    
     func setUpParentView(){
+        
         view.addSubview(containerView)
         
         //Make it vertical
@@ -104,6 +121,7 @@ class ViewController: UIViewController {
     }
     
     func setUpHeader(view: UIStackView){
+        
         //Create container
         let verticalStack = UIStackView()
         verticalStack.axis = .vertical
@@ -128,6 +146,7 @@ class ViewController: UIViewController {
     }
     
     func createCategoryRow(view: UIStackView){
+        
         //Create horizontal stack
         let horizontalStack = UIStackView()
         horizontalStack.axis = .horizontal
@@ -141,6 +160,10 @@ class ViewController: UIViewController {
         let outdoorButton = createBaseButton(view: horizontalStack, imageName: "outdoor-button")
         let barButton = createBaseButton(view: horizontalStack, imageName: "bar-button")
         
+        //Set default highlighted button
+        allButton.isSelected = true
+        selectedButton = allButton
+        
         //Set tags for buttons
         allButton.tag = 1
         musicButton.tag = 2
@@ -153,6 +176,7 @@ class ViewController: UIViewController {
     }
     
     func setUpCategorySection(view: UIStackView){
+        
         //Create vertical stack
         let verticalStack = UIStackView()
         verticalStack.axis = .vertical
@@ -172,6 +196,7 @@ class ViewController: UIViewController {
     }
     
     func createBaseButton(view: UIStackView, imageName: String) -> UIButton {
+        
         let button = UIButton(type: .system)
         
         //Set button's frame size and position
@@ -188,6 +213,7 @@ class ViewController: UIViewController {
         
         //Handle its click
         button.addTarget(self, action: #selector(handleButtonClick(sender:)), for: .touchUpInside)
+        button.showsTouchWhenHighlighted = false
         
         view.addArrangedSubview(button)
         
@@ -195,6 +221,7 @@ class ViewController: UIViewController {
     }
     
     func setUpVenueSection(view: UIStackView){
+        
         //Create vertical stack
         let verticalStack = UIStackView()
         verticalStack.axis = .vertical
@@ -222,6 +249,7 @@ class ViewController: UIViewController {
     }
 
     func setUpSubViewsProportionally(view: UIStackView) {
+        
         let verticalStack = UIStackView()
         verticalStack.axis = .vertical
         verticalStack.spacing = 20
@@ -244,6 +272,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return venues.count
     }
@@ -281,6 +310,7 @@ extension ViewController: VenueModelProtocol {
     //MARK: – Venue Model Protocol Methods
     
     func venuesRetrieved(_ venues: [Venue]) {
+        
         self.venues = venues
         
         //Refresh the table, as the venues are initially set to empty

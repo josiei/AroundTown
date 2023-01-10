@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "bar-button@1x.png",
+      "filename" : "bar-button-highlighted@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "bar-button@2x.png",
+      "filename" : "bar-button-highlighted@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "bar-button@3x.png",
+      "filename" : "bar-button-highlighted@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
