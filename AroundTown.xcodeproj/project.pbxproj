@@ -28,6 +28,7 @@
 		279A7AA1296D1F9F00D62E9C /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7AA0296D1F9F00D62E9C /* Button.swift */; };
 		279A7AA3296D385600D62E9C /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7AA2296D385600D62E9C /* Layout.swift */; };
 		279A7AA5296D3BD300D62E9C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A7AA4296D3BD300D62E9C /* Fonts.swift */; };
+		279A7AA7296DDEE100D62E9C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 279A7AA6296DDEE100D62E9C /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		279A7AA0296D1F9F00D62E9C /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		279A7AA2296D385600D62E9C /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		279A7AA4296D3BD300D62E9C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		279A7AA6296DDEE100D62E9C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		278F574D295A9199003A5666 = {
 			isa = PBXGroup;
 			children = (
+				279A7AA6296DDEE100D62E9C /* README.md */,
 				278F5758295A9199003A5666 /* AroundTown */,
 				278F5757295A9199003A5666 /* Products */,
 				279A7A9C296BFEEA00D62E9C /* Frameworks */,
@@ -236,6 +239,7 @@
 			files = (
 				27950097295BDF5500F39A04 /* SuisseIntlTrial-Bold.otf in Resources */,
 				278F5766295A919B003A5666 /* LaunchScreen.storyboard in Resources */,
+				279A7AA7296DDEE100D62E9C /* README.md in Resources */,
 				278F5763295A919B003A5666 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
