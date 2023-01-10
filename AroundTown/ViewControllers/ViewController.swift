@@ -76,7 +76,7 @@ class ViewController: UIViewController {
         self.venueTable.scrollToRow(at: indexPath, at: .top, animated: true)
     }
     
-    func updateSelectedButton(sender: UIButton){
+    private func updateSelectedButton(sender: UIButton){
         
         //Deselect current button
         if let selected = selectedButton {
@@ -88,7 +88,7 @@ class ViewController: UIViewController {
         
     }
     
-    func setUpParentView(){
+    private func setUpParentView(){
         
         view.addSubview(containerView)
         
@@ -116,7 +116,7 @@ class ViewController: UIViewController {
         
     }
     
-    func setUpHeader(view: UIStackView){
+    private func setUpHeader(view: UIStackView){
         
         //Create container
         let verticalStack = UIStackView()
@@ -141,7 +141,7 @@ class ViewController: UIViewController {
         
     }
     
-    func createCategoryRow(view: UIStackView){
+    private func createCategoryRow(view: UIStackView){
         
         //Create horizontal stack
         let horizontalStack = UIStackView()
@@ -171,7 +171,7 @@ class ViewController: UIViewController {
         
     }
     
-    func setUpCategorySection(view: UIStackView){
+    private func setUpCategorySection(view: UIStackView){
         
         //Create vertical stack
         let verticalStack = UIStackView()
@@ -191,7 +191,7 @@ class ViewController: UIViewController {
         
     }
     
-    func createBaseButton(view: UIStackView, imageName: String) -> UIButton {
+    private func createBaseButton(view: UIStackView, imageName: String) -> UIButton {
         
         let button = UIButton(type: .system)
         
@@ -216,7 +216,7 @@ class ViewController: UIViewController {
         return button
     }
     
-    func setUpVenueSection(view: UIStackView){
+    private func setUpVenueSection(view: UIStackView){
         
         //Create vertical stack
         let verticalStack = UIStackView()
@@ -244,7 +244,7 @@ class ViewController: UIViewController {
         
     }
 
-    func setUpSubViewsProportionally(view: UIStackView) {
+    private func setUpSubViewsProportionally(view: UIStackView) {
         
         let verticalStack = UIStackView()
         verticalStack.axis = .vertical
