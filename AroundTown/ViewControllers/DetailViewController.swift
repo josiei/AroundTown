@@ -144,6 +144,7 @@ class DetailViewController: UIViewController {
         button.contentMode = .scaleAspectFit
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        button.isUserInteractionEnabled = false 
     }
     
     func setupAddressRow(view: UIStackView){

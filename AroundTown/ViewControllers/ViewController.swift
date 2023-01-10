@@ -62,17 +62,17 @@ class ViewController: UIViewController {
         
         switch sender.tag {
         case 1:
-            venueModel.getVenues("fun")
+            venueModel.getVenues(Button.all)
         case 2:
-            venueModel.getVenues("music")
+            venueModel.getVenues(Button.music)
         case 3:
-            venueModel.getVenues("food")
+            venueModel.getVenues(Button.food)
         case 4:
-            venueModel.getVenues("trails")
+            venueModel.getVenues(Button.outdoors)
         case 5:
-            venueModel.getVenues("bar")
+            venueModel.getVenues(Button.bar)
         default:
-            venueModel.getVenues("all")
+            venueModel.getVenues(Button.all)
         }
         
         //Reset to the top of the table
@@ -200,7 +200,7 @@ class ViewController: UIViewController {
         let button = UIButton(type: .system)
         
         //Set button's frame size and position
-        button.frame = CGRect(x: 0, y: 0, width: 60, height: 90)
+        button.frame = CGRect(x: 0, y: 0, width: Button.width, height: Button.height)
         
         //Get image using imageName
         let image = UIImage(named: imageName)

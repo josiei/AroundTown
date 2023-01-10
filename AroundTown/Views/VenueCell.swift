@@ -102,8 +102,6 @@ class VenueCell: UITableViewCell {
             return
         }
         
-        
-        
         //Create the url
         let url = URL(string: urlString)
         
