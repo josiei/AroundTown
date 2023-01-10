@@ -10,4 +10,5 @@ import CoreGraphics
 
 class Layout {
     static let tableRowHeight: CGFloat = 250
+    static let detailRowOffset: CGFloat = 30
 }

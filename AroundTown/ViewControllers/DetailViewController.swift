@@ -30,7 +30,19 @@ class DetailViewController: UIViewController {
 
     }
     
-    func getCoordinatesOfVenue(){
+    @objc func handleLabelTap() {
+        
+        let webviewVC = WebViewController()
+        
+        //Pass webviewVC the website url
+        webviewVC.websiteUrl = venueToDisplay?.website
+        
+        //Add to the navigation controller
+        navigationController?.pushViewController(webviewVC, animated: true)
+        
+    }
+    
+    private func getCoordinatesOfVenue(){
         
         let address = "\(venueToDisplay?.location?.address ?? "") \(venueToDisplay?.location?.locality ?? ""), \(venueToDisplay?.location?.region ?? ""))"
         let geocoder = CLGeocoder()
@@ -64,7 +76,7 @@ class DetailViewController: UIViewController {
         
     }
     
-    func setupMap(lat: Double, long: Double){
+    private func setupMap(lat: Double, long: Double){
         
         //Set region of map
         let location = CLLocationCoordinate2D(latitude: lat, longitude: long)
@@ -79,7 +91,7 @@ class DetailViewController: UIViewController {
         
     }
     
-    func setUpContainerView(view: UIView){
+    private func setUpContainerView(view: UIView){
         //Add to view hierachy
         view.addSubview(containerView)
         
@@ -103,18 +115,18 @@ class DetailViewController: UIViewController {
         
     }
     
-    func setupVenueName(view: UIStackView){
+    private func setupVenueName(view: UIStackView){
         
         let venueName = UILabel()
         view.addArrangedSubview(venueName)
         
         venueName.text = venueToDisplay?.name
-        venueName.font = UIFont(name: "SuisseIntlTrial-Bold", size: 30)
+        venueName.font = Fonts.suisse30
         venueName.numberOfLines = 0
         
     }
     
-    func setupHeaderImage(view: UIStackView){
+    private func setupHeaderImage(view: UIStackView){
         
         //TODO: Guard against no photos
         
@@ -129,6 +141,7 @@ class DetailViewController: UIViewController {
         let suffix = mainPhoto.suffix!
         let imageUrl = prefix + "original" + suffix
         
+        //Get image from cache and set it
         let imageData = ImageCache.getImage(url: imageUrl)
         headerImageView.image = UIImage(data: imageData!)
         headerImageView.contentMode = .scaleAspectFill
@@ -140,7 +153,8 @@ class DetailViewController: UIViewController {
         
     }
     
-    func setupIcon(imageName: String, button: UIButton){
+    private func setupIcon(imageName: String, button: UIButton){
+        
         //Add an image for the button
         let image = UIImage(named: imageName)
         button.setBackgroundImage(image, for: .normal)
@@ -148,9 +162,10 @@ class DetailViewController: UIViewController {
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.widthAnchor.constraint(equalToConstant: 40).isActive = true
         button.isUserInteractionEnabled = false
+        
     }
     
-    func setupAddressRow(view: UIStackView){
+    private func setupAddressRow(view: UIStackView){
         
         let address = UILabel()
         let button = UIButton()
@@ -164,7 +179,7 @@ class DetailViewController: UIViewController {
         \(venueToDisplay?.location?.locality ?? "") \(venueToDisplay?.location?.region ?? "")
         """
         address.text = formattedAddress
-        address.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
+        address.font = Fonts.suisse20
         address.numberOfLines = 0
         
         horizontalRow.alignment = .top
@@ -174,19 +189,8 @@ class DetailViewController: UIViewController {
                 
     }
     
-    @objc func tappedLabel() {
-        
-        let webviewVC = WebViewController()
-        
-        //Pass webviewVC the website url
-        webviewVC.websiteUrl = venueToDisplay?.website
-        
-        //Add to the navigation controller
-        navigationController?.pushViewController(webviewVC, animated: true)
-        
-    }
     
-    func setupWebsiteRow(view: UIStackView){
+    private func setupWebsiteRow(view: UIStackView){
         
         let horizontalRow = UIStackView()
         view.addArrangedSubview(horizontalRow)
@@ -208,20 +212,20 @@ class DetailViewController: UIViewController {
             websiteLabel.attributedText = attributedText
             
             //Add tapRecognizer to label
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedLabel))
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleLabelTap))
             websiteLabel.addGestureRecognizer(tapGestureRecognizer)
             websiteLabel.isUserInteractionEnabled = true
             
         }
         
-        websiteLabel.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
+        websiteLabel.font = Fonts.suisse20
         
         //Center label with icon
         websiteLabel.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
         
     }
     
-    func setupTelephoneRow(view: UIStackView){
+    private func setupTelephoneRow(view: UIStackView){
         
         let horizontalRow = UIStackView()
         view.addArrangedSubview(horizontalRow)
@@ -235,7 +239,7 @@ class DetailViewController: UIViewController {
             telephoneLabel.text = venueToDisplay?.tel
         }
         
-        telephoneLabel.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
+        telephoneLabel.font = Fonts.suisse20
         
         setupHorizontalRow(horizontalRow: horizontalRow, button: button, label: telephoneLabel, view: view)
         setupIcon(imageName: "phone-button", button: button)
@@ -243,8 +247,9 @@ class DetailViewController: UIViewController {
                 
     }
     
-    func setupHorizontalRow(horizontalRow: UIStackView, button: UIButton, label: UILabel, view: UIStackView){
+    private func setupHorizontalRow(horizontalRow: UIStackView, button: UIButton, label: UILabel, view: UIStackView){
         
+        //Add button and label to a horizontal row
         horizontalRow.axis = .horizontal
         horizontalRow.addArrangedSubview(button)
         horizontalRow.addArrangedSubview(label)
@@ -253,13 +258,13 @@ class DetailViewController: UIViewController {
         //Set the width of the horizontal stack
         horizontalRow.translatesAutoresizingMaskIntoConstraints = false
         let width = horizontalRow.widthAnchor.constraint(equalTo: view.widthAnchor)
-        width.constant -= 30
+        width.constant -= Layout.detailRowOffset
         width.isActive = true
         
         
     }
     
-    func setupDetailRows(view: UIStackView){
+    private func setupDetailRows(view: UIStackView){
         let verticalStack = UIStackView()
         view.addArrangedSubview(verticalStack)
         
@@ -272,7 +277,7 @@ class DetailViewController: UIViewController {
         verticalStack.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         
         //Add margin spacing 
-        verticalStack.layoutMargins = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 0)
+        verticalStack.layoutMargins = UIEdgeInsets(top: 0, left: Layout.detailRowOffset, bottom: 0, right: 0)
         verticalStack.isLayoutMarginsRelativeArrangement = true
         
         setupVenueName(view: verticalStack)
