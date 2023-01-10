@@ -28,18 +28,8 @@ class VenueCell: UITableViewCell {
         contentView.backgroundColor = .white
         backgroundColor = .clear
         
-        //Set up the Venue name label
-        venueName.text = venueToDisplay!.name
-        venueName.textColor = .black
-        venueName.translatesAutoresizingMaskIntoConstraints = false
-        venueName.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
-        venueName.numberOfLines = 0
-        
-        //Set up image
-        venueImageView.translatesAutoresizingMaskIntoConstraints = false
-        venueImageView.contentMode = .scaleAspectFill
-        venueImageView.layer.masksToBounds = true
-        venueImageView.layer.cornerRadius = 2
+        setupVenueName()
+        setupVenueImage()
         
         //Animate label appearance
         UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
@@ -52,6 +42,25 @@ class VenueCell: UITableViewCell {
         self.getImage()
 
         self.setupConstraints()
+        
+    }
+    
+    private func setupVenueName(){
+        //Set up the Venue name label
+        venueName.text = venueToDisplay!.name
+        venueName.textColor = .black
+        venueName.translatesAutoresizingMaskIntoConstraints = false
+        venueName.font = UIFont(name: "SuisseIntlTrial-Bold", size: 20)
+        venueName.numberOfLines = 0
+        
+    }
+    
+    private func setupVenueImage(){
+        //Set up image
+        venueImageView.translatesAutoresizingMaskIntoConstraints = false
+        venueImageView.contentMode = .scaleAspectFill
+        venueImageView.layer.masksToBounds = true
+        venueImageView.layer.cornerRadius = 2
         
     }
     
