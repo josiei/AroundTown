@@ -1,6 +1,6 @@
 # README – Welcome to Around Town! 
-![](ReadmeAssets/Walkthrough.gif)
-
+![Gif showing the application interface](ReadmeAssets/Walkthrough.gif)
+This gif demonstrates the general walkthrough of the application. 
 ## Summary 
 
     AroundTown is an app that allows users to see cool places near them based on what the 
@@ -13,13 +13,13 @@
 
 ### Architectural Overview
 
-![](ReadmeAssets/DataFlow.png)
+![A Flow chart showing the relationship between classes](ReadmeAssets/DataFlow.png)
 A Visual Overview of the relationships within the app 
     
     I designed this application using the MVC architectural pattern. With this being the case, 
     I wanted to separate the data fetching classes into Models, so the VenueModel is the only 
     part of the application that interacts with the FourSquare API. Additionally, I created an 
-    additional LocationModel to handle the parsing and communication of the user's location. 
+    LocationModel to handle the parsing and communication of the user's location. 
     These two models send information based on the ViewController's request, allowing the 
     ViewController to contain access the the entire venues data object. 
     
@@ -41,20 +41,60 @@ A Visual Overview of the relationships within the app
 
     ### Use of at least two screens, all screens should be accessible from another screen
     
-    ### Two Screens should have direct interactions 
+    My app contains three screens, each managed by a separate ViewController. They can be 
+    navigated in a linear fashion. The home ViewController leads to the detailViewController, 
+    which leads to the WebViewController. 
+    
+    ### Two Screens should have direct interactions
+    
+    My first screen contains a tableView that is populated with individual table cells. The user can 
+    click on each of these cells to take then to the detailViewController. The ViewController for the 
+    first screen is the delegate for this table, and allows the information to be passed through the 
+    use of the delgate pattern. My second screen, the detail view page for the venue, has a direct 
+    interaction, where the user can click on the "Visit our Website" label to trigger a clickHandler
+    that passes the websiteUrl to the WebViewController. 
     
     ### Usage of MVC MVVM architectural pattern
     
+    I decided to use the MVC architectural pattern, as it was reccommended in the Apple Developer Documentation. 
+    My architectural overview above provides some context into how my classes fell into the defined categories of 
+    Model, View, and ViewController Categories. Additionally, I chose to separate the View classes by matter of 
+    reuseability or if I felt they may need expanded functionality, leading me to have separate classes for the 
+    VenueCell and the MapView. For more static user interface elements, such as labels, text, and images – I decided
+    to define it in the ViewController, as the ViewController already had access to the data I would populate it with. 
+    
     ### Integration with oneAPI
+    
+    I chose to use the FourSquare API, as I was interested in building something I could use in my everyday life and was 
+    very interested in the opportunity to work with real world data. 
     
     ### Use of at least 5 different UI Components 
         
         1. Labels
+            Labels appear throughout my app to convey information to the user. Some examples include the userLocation label that signal
+            what city the user is looking at venue's in, as well as displaying the name of the venue on the venueCell cards, and in the 
+            detail view to show the information for that venue. 
+            
         2. Buttons
+            I have a set of buttons on my first screen representing the category of places the user can make queries for. By default, the 
+            "all" button is selected, but if you click on another button, it will set that button to be selected and populate the table with
+            the corresponding venues. 
+            
         3. UIStackViews
+            I used stack views within my first two screen, to organize the views. I used a horizontal StackView to lay out my buttons equally,
+            and composed that within several vertical StackViews to make it easier to organize the layout. 
+            
         4. TableView
+            I chose to use a TableView in my first screen to display the cards, over a collection view, because I knew I wanted a single 
+            direction scrollable list over the customization and potential complexity of the collection view. 
+            
         5. MapView
+            I chose to display a map view in my detail view screen as I wanted the user to be able to see what part of the city 
+            their venue was in. This allows them to get a better picture of what is near by in the area. 
+            
         6. WKWebView
+            The WKWebView takes up the entirety of my third screen, when the user clicks on the website link from the detail view screen. 
+            I was interested in implementing something that made another http request to outside data. 
 
 
 ## Process 
