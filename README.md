@@ -5,7 +5,7 @@ This gif demonstrates the general walkthrough of the application.
 
 ## Summary 
 
-AroundTown is an app that allows users to see cool places near them based on what the 
+AroundTown is an app that allows users to see cool places near them based on the 
 type of venue they are looking for. It leverages the FourSquare API to source places 
 based on the user's coordinates. Users can scroll a table view of populated results, 
 and click on a card to take them to a detailed view of the location. The detailed view 
@@ -72,34 +72,34 @@ everyday life and was very interested in the opportunity to work with real world
     
 ### Use of at least 5 different UI Components 
         
-1. Labels
+1. Labels:
             Labels appear throughout my app to convey information to the user. Some examples include 
             the userLocation label that signal what city the user is looking at venue's in, as well 
             as displaying the name of the venue on the venueCell cards, and in the detail view to 
             show the information for that venue. 
             
-2. Buttons
+2. Buttons:
             I have a set of buttons on my first screen representing the category of places the 
             user can make queries for. By default, the "all" button is selected, but if you click 
             on another button, it will set that button to be selected and populate the table with
             the corresponding venues. 
             
-3. UIStackViews
+3. UIStackViews:
             I used stack views within my first two screen, to organize the views. I used a horizontal 
             StackView to lay out my buttons equally,and composed that within several vertical 
             StackViews to make it easier to organize the layout. 
             
-4. TableView
+4. TableView:
             I chose to use a TableView in my first screen to display the cards, over a collection 
             view, because I knew I wanted a single direction scrollable list over the customization 
             and potential complexity of the collection view. 
             
-5. MapView
+5. MapView:
             I chose to display a map view in my detail view screen as I wanted the user to be able 
             to see what part of the city their venue was in. This allows them to get a better 
             picture of what is near by in the area. 
             
-6. WKWebView
+6. WKWebView:
             The WKWebView takes up the entirety of my third screen, when the user clicks on the 
             website link from the detail view screen. I was interested in implementing something 
             that made another http request to outside data. 
@@ -181,7 +181,7 @@ the complexity if I only exposed the information through a variable.
         
 #### Encapsulating MapView and Venue Cell
 
-I decided to create separate classes for these Views, to make my code more reuseable and perhaps provide some flexibility for future features. My VenueCell class has been set up to customize the UI look of the cell, and it would be easier to make changes in the future by organizing that code together. 
+I decided to create separate classes for these Views, to make my code more reuseable and perhaps provide some flexibility for future features. My VenueCell class has been set up to customize the look of the cell, and it would be easier to make changes in the future by organizing that code together. 
 
 Right now, my MapView class is mostly a shell, but it is useful in the fact that it will only expose the features of the MKMapView that you'd like to use in other parts of your app, so your other classes don't have to worry about it's implementation details. 
         
