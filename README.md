@@ -58,8 +58,7 @@ that passes the websiteUrl to the WebViewController.
     
 ### Usage of MVC MVVM architectural pattern
     
-I decided to use the MVC architectural pattern, as it was reccommended in the Apple Developer 
-Documentation. My architectural overview above provides some context into how my classes fell 
+My architectural overview above provides some context into how my classes fell 
 into the defined categories of Model, View, and ViewController Categories. Additionally, I 
 chose to separate the View classes by matter of reuseability or if I felt they may need expanded 
 functionality, leading me to have separate classes for the VenueCell and the MapView. For more 
@@ -130,7 +129,7 @@ This list included:
 - On the detail page, the user will be able to see a map where the venue is located 
 - If the user clicks the website link, the user can view the venues website in the app 
 
-From here, it was off to the races to begin doing research. Overall, it took me roughly 40 hours to get my MVP running. This was truly an incredible 
+From there, it was off to the races to begin doing research. Overall, it took me roughly 40 hours to get my MVP running. This was truly an incredible 
 experience as I had no previous experience with Swift or IOS development before this application cycle. 
 
 
@@ -168,29 +167,44 @@ experience as I had no previous experience with Swift or IOS development before 
 
 ## Decisions and Tradeoffs
 
-    ### MVC Pattern
+#### MVC Pattern
+
+I chose to use the MVC pattern as I liked the clear separation of roles for each of the classes. Additionally, the Apple developer 
+documentation suggested that the MVC pattern is useful as some Cocoa objects will require your custom objects to play one
+of the roles defined by MVC. My research also suggested that MVVM is more useful in apps that require complex view interactions, so I felt MVC would be better suited to the more straight forward nature of my app. 
         
-    ### Using delegate pattern for venueTable in ViewController 
+#### Passing data through using a property for DetailViewController and WebViewController
+
+I decided to pass data through using properties for these classes, rather than assigning them as delegates of each other. The data
+I was passing did not require the need for the delegate to implement protocol methods, so I thought it would overall reduce 
+the complexity if I only exposed the information through a variable. 
         
-    ### Passing data through using a property for DetailViewController and WebViewController
+#### Encapsulating MapView and Venue Cell
+
+I decided to create separate classes for these Views, to make my code more reuseable and perhaps provide some flexibility for future features. My VenueCell class has been set up to customize the UI look of the cell, and it would be easier to make changes in the future by organizing that code together. 
+
+Right now, my MapView class is mostly a shell, but it is useful in the fact that it will only expose the features of the MKMapView that you'd like to use in other parts of your app, so your other classes don't have to worry about it's implementation details. 
         
-    ### Encapsulating MapView and Venue Cell
+#### Using Image Cache 
+
+I decided to implement an ImageCache class so I wouldn't have to make an HTTP request multiple times for the same image, in turn optimizing performance. I could assume in the detailViewController that the hero image had been downloaded already, as it was downloaded and displayed for the VenueCell. The potential trade off for this is that ImageCache could end up taking a lot of space as, it will end up keeping a reference to every image that the API calls have returned and loaded. 
+
+#### Using Notification center for detecting change in user's location
+
+Initially my app loads a default set of venues for the area Oakland, CA. This is for the case where the user never allows their location to be shared, but they still want to see the functionality of the app. I use Notification center to handle the asynchronous process of updating the venue categories in the case that the user does allow their location to be shared. 
         
-    ### Using Image Cache 
-        
-    ### Using Notification center for detecting change in user's location
-        
-    ### Using a combination of AutoLayout and Stacks Views to layout UI programmatically
+#### Using a combination of AutoLayout and Stacks Views to layout UI programmatically
+
+Coming from HTML and CSS background, the idea of organizing views by stacks was very natural to me. I decided to compose 
+many of my layouts by added them to stacks, and then set AutoLayout constraints for customizing them to achieve a specific look. 
     
-    ### Use of animations 
+#### Use of animations 
+
+The Apple User Interface guidelines seem to encourage a clean and minimal user interface. To keep in line with this, I used animations to soften the look of loading assets like the venueCell list. 
 
 ## Future Optimizations 
 
-    ### Adding directions from user's location to venue's location
+If I had more time, I would love to implement directions from a user's location to a location's venue. I feel like this would make this a truly all-in-one app, where not only can you find things to do, it will guide you until you get there. Additionally, I'd like to make the other data in the detail page displays more interactable. For example, I would include a pop-up interaction asking if you'd like to call the venue's phone number if you click on it. Lastly, I would look into similar API's to see if there is one that I would be able to leverage to add additional data.
     
-    ### Adding the ability to click the phone number and have a pop up that asks if you'd like to call the number 
-    
-    ### Investigating other API's like Foursquare places to see if they contain more data to integrate 
-    
-## 
+## Thanks for reading! 
 
